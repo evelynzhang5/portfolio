@@ -15,14 +15,18 @@ img {
 /* Step 2.1: Neutralize the default list styling */
 /* Set a grey accent color using a custom property */
 :root {
-  --color-accent: oklch(65% 0.3 280deg); /* purple accent: 65% lightness, moderate chroma, 280° hue */
+  /* Main accent: Purple with 65% lightness, moderate chroma, and a hue of 280deg */
+  --color-accent: oklch(0.65 0.3 280deg);
+
+  /* Current page color: Grey with 65% lightness and 0 chroma (hue is irrelevant for grey) */
+  --color-current: oklch(0.65 0 0);
 }
 
 html {
   accent-color: var(--color-accent);
 }
 
-/* Neutralize default list styling */
+/* Remove default list styling */
 nav ul,
 nav li {
   display: contents;
@@ -31,29 +35,33 @@ nav li {
 /* Flexbox layout and base nav styling */
 nav {
   display: flex;
-  margin-bottom: 1em;                               /* Space below the nav */
-  border-bottom: 1px solid oklch(80% 0 0);           /* Subtle grey bottom border */
+  margin-bottom: 1em;
+  border-bottom: 1px solid oklch(0.8 0 0); /* A subtle grey border for separation */
 }
 
+/* Base nav link styles */
 nav a {
-  flex: 1;                                         /* Evenly distribute links */
-  text-decoration: none;                           /* Remove underline */
-  color: inherit;                                  /* Inherit parent's text color */
-  text-align: center;                              /* Center text */
-  padding: 0.5em;                                  /* Spacing around text */
-  border-bottom: 2px solid transparent;            /* Reserve space for hover border */
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  padding: 0.5em;
+  border-bottom: 2px solid transparent;
   transition: border-bottom 0.2s ease, background-color 0.2s ease;
+  box-sizing: border-box;
 }
 
-/* Hover state: accent grey border and light grey background */
+/* Hover state: main purple accent with a light purple background */
 nav a:hover {
   border-bottom: 0.4em solid var(--color-accent);
-  background-color: oklch(95% 0 0);                 /* Light grey background */
+  background-color: oklch(0.95 0.1 280deg); /* Light purple tint */
 }
 
 /* Current page link: Always highlighted with the grey accent */
 nav a.current {
-  border-bottom: 0.4em solid var(--color-accent);
-  padding-bottom: calc(0.5em - 0.4em);             /* Reduce padding to counter the thicker border */
+  border-bottom: 0.4em solid var(--color-current);
+  padding-bottom: calc(0.5em - 0.4em); /* Adjust padding to maintain overall height */
+  /* Optional: to also change text color to grey, uncomment the line below */
+  /* color: var(--color-current); */
 }
 
