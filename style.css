@@ -3,4 +3,40 @@ body {
          and use the OS’s UI font as the website font
        */
     font: 100%/1.5 system-ui;
+    max-width: 100ch;
+    margin-inline: max(1em, (100% - 100ch) / 2);
+    
+    
   }
+img {
+    max-width: 100%;
+    height: auto;
+  }
+/* Step 2.1: Neutralize the default list styling */
+nav ul,
+nav li {
+  display: contents; /* Ignores the default <ul> and <li> styles */
+}
+
+/* Step 2.2: Use Flexbox for layout */
+/* Enable Flexbox on the nav container so its children (<a> elements) are laid out evenly */
+nav {
+  display: flex;
+  margin-bottom: 1em;                              /* Space below the nav */
+  border-bottom: 1px solid oklch(80% 3% 200);        /* Subtle cool gray bottom border */
+}
+
+/* Make each link take up equal space */
+nav a {
+  flex: 1;                        /* Equal distribution of space */
+  text-decoration: none;          /* Remove default underline */
+  color: inherit;                 /* Use the parent's text color */
+  text-align: center;             /* Center text within each link */
+  padding: 0.5em;                 /* Spacing around the link text */
+}
+/* Step 2.3: Style the current page link */
+nav a.current {
+  border-bottom: 0.4em solid oklch(80% 3% 200);    /* Thick bottom border to highlight current page */
+  padding-bottom: calc(0.5em - 0.4em);            /* Reduce bottom padding to offset added border height */
+  
+}
