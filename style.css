@@ -65,19 +65,16 @@ nav a.current {
   /* color: var(--color-current); */
 }
 
-/* Contact Form Layout */
 form {
   display: grid;
-  /* First column: auto-sized to fit label text, 
-     Second column: takes remaining space for input fields */
+  /* First column: auto-sized to fit label text, Second column: takes remaining space for input fields */
   grid-template-columns: auto 1fr;
   gap: 1em; /* spacing between columns and rows */
-  max-width: 600px; /* optional: limit form width */
-  margin: 0 auto;   /* optional: center the form horizontally */
+  max-width: 800px; /* Increased from 600px to widen the form */
+  margin: 0 auto;   /* Center the form horizontally */
 }
 
-/* “Dirty” approach: remove the box around each label so text & input 
-   can flow into separate columns in the parent grid */
+/* “Dirty” approach: remove the box around each label so text & input can flow into separate columns in the parent grid */
 form label {
   display: contents;
 }
@@ -87,8 +84,8 @@ form input,
 form textarea {
   width: 100%;
   box-sizing: border-box;
-  padding: 0.5em;     /* example padding */
-  font: inherit;      /* match page font */
+  padding: 0.5em;  /* example padding */
+  font: inherit;   /* match page font */
 }
 
 /* Make the button span both columns */
@@ -96,9 +93,9 @@ form button {
   grid-column: 1 / -1;
   padding: 0.75em 1em;
   cursor: pointer;
-  font: inherit;      /* match page font */
+  font: inherit;   /* match page font */
 }
-/* Step 4.2: Responsive Grid Layout for Projects */
+
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
@@ -130,5 +127,5 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Make the main title significantly larger (assuming body text is 1rem, 4rem = 400%) */
 h1 {
-  font-size: 4rem;
+  font-size: 3rem;
 }
