@@ -65,3 +65,70 @@ nav a.current {
   /* color: var(--color-current); */
 }
 
+/* Contact Form Layout */
+form {
+  display: grid;
+  /* First column: auto-sized to fit label text, 
+     Second column: takes remaining space for input fields */
+  grid-template-columns: auto 1fr;
+  gap: 1em; /* spacing between columns and rows */
+  max-width: 600px; /* optional: limit form width */
+  margin: 0 auto;   /* optional: center the form horizontally */
+}
+
+/* “Dirty” approach: remove the box around each label so text & input 
+   can flow into separate columns in the parent grid */
+form label {
+  display: contents;
+}
+
+/* Ensure inputs and textarea fill their grid cell nicely */
+form input,
+form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5em;     /* example padding */
+  font: inherit;      /* match page font */
+}
+
+/* Make the button span both columns */
+form button {
+  grid-column: 1 / -1;
+  padding: 0.75em 1em;
+  cursor: pointer;
+  font: inherit;      /* match page font */
+}
+/* Step 4.2: Responsive Grid Layout for Projects */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1em;
+  padding: 1em;
+  margin: 0 auto; /* centers the grid if you set a max-width on .projects */
+}
+
+.projects article {
+  display: grid;
+  grid-template-rows: subgrid;  /* Let the rows follow the parent's grid row definition */
+  grid-row: span 3;             /* Each article spans three rows */
+  gap: 0.5em;                  /* Spacing within each article */
+  padding: 0.5em;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+}
+
+/* Remove extra margin from the headings to avoid misalignment */
+.projects article h2 {
+  margin: 0;
+}
+
+/* Apply good defaults to all headings */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+/* Make the main title significantly larger (assuming body text is 1rem, 4rem = 400%) */
+h1 {
+  font-size: 4rem;
+}
