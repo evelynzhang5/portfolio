@@ -15,7 +15,7 @@ img {
 /* Step 2.1: Neutralize the default list styling */
 /* Set a grey accent color using a custom property */
 :root {
-  --color-accent: oklch(65% 0 0); /* grey accent: 65% lightness, 0 chroma, hue is irrelevant */
+  --color-accent: oklch(65% 0.3 280deg); /* purple accent: 65% lightness, moderate chroma, 280° hue */
 }
 
 html {
