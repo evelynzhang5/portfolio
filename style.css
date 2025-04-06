@@ -13,30 +13,47 @@ img {
     height: auto;
   }
 /* Step 2.1: Neutralize the default list styling */
+/* Set a grey accent color using a custom property */
+:root {
+  --color-accent: oklch(65% 0 0); /* grey accent: 65% lightness, 0 chroma, hue is irrelevant */
+}
+
+html {
+  accent-color: var(--color-accent);
+}
+
+/* Neutralize default list styling */
 nav ul,
 nav li {
-  display: contents; /* Ignores the default <ul> and <li> styles */
+  display: contents;
 }
 
-/* Step 2.2: Use Flexbox for layout */
-/* Enable Flexbox on the nav container so its children (<a> elements) are laid out evenly */
+/* Flexbox layout and base nav styling */
 nav {
   display: flex;
-  margin-bottom: 1em;                              /* Space below the nav */
-  border-bottom: 1px solid oklch(80% 3% 200);        /* Subtle cool gray bottom border */
+  margin-bottom: 1em;                               /* Space below the nav */
+  border-bottom: 1px solid oklch(80% 0 0);           /* Subtle grey bottom border */
 }
 
-/* Make each link take up equal space */
 nav a {
-  flex: 1;                        /* Equal distribution of space */
-  text-decoration: none;          /* Remove default underline */
-  color: inherit;                 /* Use the parent's text color */
-  text-align: center;             /* Center text within each link */
-  padding: 0.5em;                 /* Spacing around the link text */
+  flex: 1;                                         /* Evenly distribute links */
+  text-decoration: none;                           /* Remove underline */
+  color: inherit;                                  /* Inherit parent's text color */
+  text-align: center;                              /* Center text */
+  padding: 0.5em;                                  /* Spacing around text */
+  border-bottom: 2px solid transparent;            /* Reserve space for hover border */
+  transition: border-bottom 0.2s ease, background-color 0.2s ease;
 }
-/* Step 2.3: Style the current page link */
+
+/* Hover state: accent grey border and light grey background */
+nav a:hover {
+  border-bottom: 0.4em solid var(--color-accent);
+  background-color: oklch(95% 0 0);                 /* Light grey background */
+}
+
+/* Current page link: Always highlighted with the grey accent */
 nav a.current {
-  border-bottom: 0.4em solid oklch(80% 3% 200);    /* Thick bottom border to highlight current page */
-  padding-bottom: calc(0.5em - 0.4em);            /* Reduce bottom padding to offset added border height */
-  
+  border-bottom: 0.4em solid var(--color-accent);
+  padding-bottom: calc(0.5em - 0.4em);             /* Reduce padding to counter the thicker border */
 }
+
