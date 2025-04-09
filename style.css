@@ -1,24 +1,15 @@
 body {
-    /* Set line height to 1.5 times the font size
-         and use the OS’s UI font as the website font
-       */
     font: 100%/1.5 system-ui;
     max-width: 100ch;
     margin-inline: max(1em, (100% - 100ch) / 2);
-    
-    
   }
 img {
     max-width: 100%;
     height: auto;
   }
-/* Step 2.1: Neutralize the default list styling */
-/* Set a grey accent color using a custom property */
-:root {
-  /* Main accent: Purple with 65% lightness, moderate chroma, and a hue of 280deg */
-  --color-accent: oklch(0.65 0.3 280deg);
 
-  /* Current page color: Grey with 65% lightness and 0 chroma (hue is irrelevant for grey) */
+:root {
+  --color-accent: oklch(0.65 0.3 280deg);
   --color-current: oklch(0.65 0 0);
 }
 
@@ -26,20 +17,17 @@ html {
   accent-color: var(--color-accent);
 }
 
-/* Remove default list styling */
 nav ul,
 nav li {
   display: contents;
 }
 
-/* Flexbox layout and base nav styling */
 nav {
   display: flex;
   margin-bottom: 1em;
-  border-bottom: 1px solid oklch(0.8 0 0); /* A subtle grey border for separation */
+  border-bottom: 1px solid oklch(0.8 0 0); 
 }
 
-/* Base nav link styles */
 nav a {
   flex: 1;
   text-decoration: none;
@@ -51,13 +39,13 @@ nav a {
   box-sizing: border-box;
 }
 
-/* Hover state: main purple accent with a light purple background */
+
 nav a:hover {
   border-bottom: 0.4em solid var(--color-accent);
-  background-color: oklch(0.95 0.1 280deg); /* Light purple tint */
+  background-color: oklch(0.95 0.1 280deg); 
 }
 
-/* Current page link: Always highlighted with the grey accent */
+
 nav a.current {
   border-bottom: 0.4em solid var(--color-current);
   padding-bottom: calc(0.5em - 0.4em); /* Adjust padding to maintain overall height */
@@ -67,33 +55,31 @@ nav a.current {
 
 form {
   display: grid;
-  /* First column: auto-sized to fit label text, Second column: takes remaining space for input fields */
   grid-template-columns: auto 1fr;
-  gap: 1em; /* spacing between columns and rows */
-  max-width: 800px; /* Increased from 600px to widen the form */
-  margin: 0 auto;   /* Center the form horizontally */
+  gap: 1em; 
+  max-width: 800px;
+  margin: 0 auto;  
 }
 
-/* “Dirty” approach: remove the box around each label so text & input can flow into separate columns in the parent grid */
 form label {
   display: contents;
 }
 
-/* Ensure inputs and textarea fill their grid cell nicely */
+
 form input,
 form textarea {
   width: 100%;
   box-sizing: border-box;
-  padding: 0.5em;  /* example padding */
-  font: inherit;   /* match page font */
+  padding: 0.5em; 
+  font: inherit;   
 }
 
-/* Make the button span both columns */
+
 form button {
   grid-column: 1 / -1;
   padding: 0.75em 1em;
   cursor: pointer;
-  font: inherit;   /* match page font */
+  font: inherit;  
 }
 
 .projects {
@@ -101,31 +87,30 @@ form button {
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   gap: 1em;
   padding: 1em;
-  margin: 0 auto; /* centers the grid if you set a max-width on .projects */
+  margin: 0 auto; 
 }
 
 .projects article {
   display: grid;
-  grid-template-rows: subgrid;  /* Let the rows follow the parent's grid row definition */
-  grid-row: span 3;             /* Each article spans three rows */
-  gap: 0.5em;                  /* Spacing within each article */
+  grid-template-rows: subgrid;  
+  grid-row: span 3;             
+  gap: 0.5em;                 
   padding: 0.5em;
   background: #f9f9f9;
   border: 1px solid #ddd;
 }
 
-/* Remove extra margin from the headings to avoid misalignment */
+
 .projects article h2 {
   margin: 0;
 }
 
-/* Apply good defaults to all headings */
+
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
 }
 
-/* Make the main title significantly larger (assuming body text is 1rem, 4rem = 400%) */
 h1 {
   font-size: 3rem;
 }
