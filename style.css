@@ -116,20 +116,21 @@ h1 {
 }
 
 
-
+/* === Resume Visual Enhancements === */
 .resume {
-  background-color: #f8f9fb;
+  background: #f8f9fb;
   padding-bottom: 4rem;
 }
 
 .resume header {
   text-align: center;
-  margin-block: 2.5rem 1.5rem;
+  margin-block: 3rem 2rem;
 }
 
 .resume header h1 {
   font-size: 2.5rem;
   margin-bottom: 0.3em;
+  color: oklch(0.2 0 0);
 }
 
 .resume header p {
@@ -139,21 +140,24 @@ h1 {
 
 .resume header a {
   color: var(--color-accent);
+  font-weight: 500;
+  text-decoration: none;
 }
 
 .resume section {
   background: #fff;
   padding: 2rem;
-  border-radius: 10px;
   margin-block: 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.03);
 }
 
 .resume section h2 {
   font-size: 1.6rem;
-  border-bottom: 2px solid oklch(0.85 0 0);
-  padding-bottom: 0.5rem;
+  color: oklch(0.2 0 0);
   margin-bottom: 1rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.4rem;
 }
 
 .resume article + article {
@@ -162,8 +166,9 @@ h1 {
 
 .resume article header h3 {
   font-size: 1.2rem;
+  font-weight: 600;
   color: var(--color-accent);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.25rem;
 }
 
 .resume article header p,
@@ -171,19 +176,25 @@ h1 {
   font-size: 0.95rem;
   font-style: italic;
   color: oklch(0.5 0 0);
+  margin-bottom: 0.5rem;
+}
+
+.resume article p {
+  margin-bottom: 1rem;
+  color: oklch(0.25 0 0);
 }
 
 .resume ul {
-  padding-left: 1.5em;
-  margin-top: 0.5em;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
 }
 
 .resume ul li {
-  margin-bottom: 0.4em;
-  line-height: 1.4;
+  margin-bottom: 0.35rem;
+  line-height: 1.5;
+  color: oklch(0.3 0 0);
 }
 
 .resume a:hover {
   text-decoration: underline;
 }
-
