@@ -117,31 +117,31 @@ h1 {
 
 
 /* ========== Resume Page Styling ========== */
-body.resume {
+.resume {
   background-color: #f8f9fb;
   padding-bottom: 4rem;
 }
 
-body.resume header {
+.resume header {
   text-align: center;
   margin-block: 2.5rem 1.5rem;
 }
 
-body.resume header h1 {
+.resume header h1 {
   font-size: 2.5rem;
   margin-bottom: 0.3em;
 }
 
-body.resume header p {
+.resume header p {
   font-size: 1rem;
   color: oklch(0.45 0 0);
 }
 
-body.resume header a {
+.resume header a {
   color: var(--color-accent);
 }
 
-body.resume section {
+.resume section {
   background: #fff;
   padding: 2rem;
   border-radius: 10px;
@@ -149,41 +149,41 @@ body.resume section {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
-body.resume section h2 {
+.resume section h2 {
   font-size: 1.6rem;
   border-bottom: 2px solid oklch(0.85 0 0);
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
 }
 
-body.resume article + article {
+.resume article + article {
   margin-top: 1.5rem;
 }
 
-body.resume article header h3 {
+.resume article header h3 {
   font-size: 1.2rem;
   color: var(--color-accent);
   margin-bottom: 0.2rem;
 }
 
-body.resume article header p,
-body.resume time {
+.resume article header p,
+.resume time {
   font-size: 0.95rem;
   font-style: italic;
   color: oklch(0.5 0 0);
 }
 
-body.resume ul {
+.resume ul {
   padding-left: 1.5em;
   margin-top: 0.5em;
 }
 
-body.resume ul li {
+.resume ul li {
   margin-bottom: 0.4em;
   line-height: 1.4;
 }
 
-body.resume a:hover {
+.resume a:hover {
   text-decoration: underline;
 }
 
