@@ -1,3 +1,30 @@
+/* Global Variables & Base Styles */
+:root {
+  /* Color Palette */
+  --primary-color: oklch(0.2 0 0);      /* For main headings and primary text */
+  --secondary-color: oklch(0.45 0 0);    /* For subheadings and details */
+  --accent-color: oklch(0.65 0.3 280deg); /* For interactive highlights & links */
+  --current-color: oklch(0.65 0 0);
+  --bg-color: #f8f9fb;
+  --card-bg: #fff;
+  
+  /* Typography & Layout */
+  --font-family: system-ui, sans-serif;
+  --base-font-size: 1rem;
+  --header-size: 3rem;            /* Default H1 on general pages */
+  --resume-header-size: 2.75rem;    /* Resume page header H1 */
+  --subheader-size: 1.6rem;         /* Section headings */
+  --max-content-width: 100ch;
+}
+
+html {
+  accent-color: var(--accent-color);
+}
+
+
+
+
+
 body {
     font: 100%/1.5 system-ui;
     max-width: 100ch;
@@ -116,9 +143,10 @@ h1 {
 }
 
 
+
 /* === Resume Visual Enhancements === */
 .resume {
-  background: #f8f9fb;
+  background: var(--bg-color);
   padding-bottom: 4rem;
 }
 
@@ -128,38 +156,49 @@ h1 {
 }
 
 .resume header h1 {
-  font-size: 2.5rem;
+  font-size: var(--resume-header-size);
   margin-bottom: 0.3em;
-  color: oklch(0.2 0 0);
+  color: var(--primary-color);
+  font-weight: bold;
 }
 
 .resume header p {
   font-size: 1rem;
-  color: oklch(0.45 0 0);
+  color: var(--secondary-color);
 }
 
 .resume header a {
-  color: var(--color-accent);
+  color: var(--accent-color);
   font-weight: 500;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
+.resume header a:hover {
+  text-decoration: underline;
+}
+
+/* Section "Card" Styles for Resume */
 .resume section {
-  background: #fff;
+  background: var(--card-bg);
   padding: 2rem;
   margin-block: 2rem;
   border-radius: 12px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.03);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .resume section h2 {
-  font-size: 1.6rem;
-  color: oklch(0.2 0 0);
+  font-size: var(--subheader-size);
+  color: var(--primary-color);
   margin-bottom: 1rem;
   border-bottom: 2px solid #eee;
   padding-bottom: 0.4rem;
 }
 
+/* Resume Articles */
 .resume article + article {
   margin-top: 1.5rem;
 }
@@ -167,7 +206,7 @@ h1 {
 .resume article header h3 {
   font-size: 1.2rem;
   font-weight: 600;
-  color: var(--color-accent);
+  color: var(--accent-color);
   margin-bottom: 0.25rem;
 }
 
@@ -175,15 +214,16 @@ h1 {
 .resume time {
   font-size: 0.95rem;
   font-style: italic;
-  color: oklch(0.5 0 0);
+  color: var(--secondary-color);
   margin-bottom: 0.5rem;
 }
 
 .resume article p {
   margin-bottom: 1rem;
-  color: oklch(0.25 0 0);
+  color: var(--primary-color);
 }
 
+/* Lists in Resume */
 .resume ul {
   padding-left: 1.5rem;
   margin-top: 0.5rem;
@@ -192,9 +232,53 @@ h1 {
 .resume ul li {
   margin-bottom: 0.35rem;
   line-height: 1.5;
-  color: oklch(0.3 0 0);
+  color: var(--primary-color);
 }
 
 .resume a:hover {
   text-decoration: underline;
+}
+
+/* Interactive States for Links & Focus */
+a:hover,
+a:focus {
+  text-decoration: underline;
+  outline: none;
+}
+
+a:focus {
+  box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.5);
+}
+
+/* Responsive Enhancements */
+@media (max-width: 800px) {
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .resume section, .projects article {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .resume header h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body, .resume {
+    background: #fff;
+    color: var(--primary-color);
+  }
+  .resume section {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    page-break-inside: avoid;
+  }
+  nav, form, .projects {
+    display: none;
+  }
 }
