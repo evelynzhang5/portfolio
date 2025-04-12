@@ -26,7 +26,7 @@ for (let p of pages) {
     // Adjust relative URLs based on deployment environment
     const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
       ? "/"       // Local server
-      : "/evelynzhang5.github.io/portfolio/"; // GitHub Pages repo path
+      : "/portfolio/"; // GitHub Pages repo path
     
     // If the URL is not absolute, prepend the base path.
     url = !url.startsWith('http') ? BASE_PATH + url : url;
