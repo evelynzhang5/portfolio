@@ -16,10 +16,10 @@ let pages = [
     { url: 'https://github.com/evelynzhang5', title: 'Github' }
   ];
   
-  let nav = document.createElement('nav');
-  document.body.prepend(nav);
+let nav = document.createElement('nav');
+document.body.prepend(nav);
   
-  for (let p of pages) {
+for (let p of pages) {
     let url = p.url;
     let title = p.title;
     
