@@ -81,12 +81,13 @@ html {
 }
 
 body {
-    font: 100%/1.5 system-ui;
-    max-width: 100ch;
-    margin-inline: max(1em, (100% - 100ch) / 2);
-      background: var(--bg-color);
-    
-  }
+  font: 100%/1.5 system-ui;
+  max-width: 100ch;
+  margin-inline: max(1em, (100% - 100ch) / 2);
+  background: var(--bg-color);
+  color: var(--primary-color); /* ✅ Add this line */
+}
+
 
 img {
     display: block;
@@ -104,22 +105,25 @@ nav {
   --border-color: oklch(50% 10% 200 / 40%);
   border-bottom-color: var(--border-color);
 }
-
-nav {
-  display: flex;
-  margin-bottom: 1em;
-  border-bottom: 1px solid oklch(0.8 0 0); 
-}
-
 nav a {
+  color: var(--primary-color); /* ✅ Set color explicitly */
   flex: 1;
   text-decoration: none;
-  color: inherit;
   text-align: center;
   padding: 0.5em;
   border-bottom: 2px solid transparent;
   transition: border-bottom 0.2s ease, background-color 0.2s ease;
   box-sizing: border-box;
+}
+p {
+  color: var(--secondary-color);
+}
+
+
+nav {
+  display: flex;
+  margin-bottom: 1em;
+  border-bottom: 1px solid oklch(0.8 0 0); 
 }
 
 
@@ -207,7 +211,9 @@ form button {
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
+  color: var(--primary-color); /* ✅ Add this */
 }
+
 
 h1 {
   font-size: 3rem;
