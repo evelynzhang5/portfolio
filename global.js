@@ -105,6 +105,20 @@ document.body.insertAdjacentHTML(
 //   `
 // );
 
+document.body.insertAdjacentHTML(
+  'afterbegin',
+  `
+    <label class="color-scheme">
+      Theme:
+      <select>
+        <option value="auto">Automatic</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </label>
+  `
+);
+
 // Function to update the theme by toggling classes on the <html> element
 function setTheme(theme) {
   const htmlEl = document.documentElement;
