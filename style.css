@@ -16,7 +16,15 @@
   --subheader-size: 1.6rem;         /* Section headings */
   --max-content-width: 100ch;
 }
-
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1a1a1a;                   /* Dark background */
+    --card-bg: #222;                       /* Darker card background */
+    --primary-color: #f0f0f0;               /* Light text */
+    --secondary-color: #ccc;               /* Slightly lighter secondary text */
+    --border-color: oklch(50% 10% 200 / 40%);/* Softer border for dark mode */
+  }
+}
 
 
 html {
