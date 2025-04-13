@@ -67,6 +67,11 @@ document.body.insertAdjacentHTML(
 function setColorScheme(colorScheme) {
   document.documentElement.classList.remove("force-light", "force-dark");
 
+  if (colorScheme === "auto") {
+    // Let browser use the OS-level preference via media query
+    return;
+  }
+
   if (colorScheme === "light") {
     document.documentElement.classList.add("force-light");
   } else if (colorScheme === "dark") {
@@ -77,6 +82,7 @@ function setColorScheme(colorScheme) {
   localStorage.colorScheme = colorScheme;
   console.log("Color scheme changed to:", colorScheme);
 }
+
 
 // Initialize theme from saved preference on page load
 const select = document.querySelector(".color-scheme select");

@@ -1,35 +1,56 @@
+:root {
+  /* Color Palette (using OKLCH) */
+  --primary-color: oklch(0.2 0 0);            /* Dark text for headings in light mode */
+  --secondary-color: oklch(0.45 0 0);          /* Subtle text for details */
+  --accent-color: oklch(0.65 0.3 280deg);       /* For interactive highlights & links */
+  --current-color: oklch(0.65 0 0);
+  /* Light mode backgrounds:
+      #f8f9fb is very light—here approximated as nearly white */
+  --bg-color: oklch(0.98 0 0);                 /* Overall page background for light mode */
+  --card-bg: oklch(1 0 0);                     /* Pure white for card background */
+  --border-color: oklch(80% 3% 200);           /* For borders in light mode */
   
+  /* Typography & Layout */
+  --font-family: system-ui, sans-serif;
+  --base-font-size: 1rem;
+  --header-size: 3rem;                       /* Default H1 on general pages */
+  --resume-header-size: 2.75rem;               /* Resume page header H1 */
+  --subheader-size: 1.6rem;                    /* Section headings */
+  --max-content-width: 100ch;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color: oklch(0.15 0 0);             /* Dark background */
-    --card-bg: oklch(0.18 0 0);              /* Slightly lighter than bg */
-    --primary-color: oklch(0.94 0 0);        /* Light text */
-    --secondary-color: oklch(0.8 0 0);       /* Subdued light text */
+    --bg-color: oklch(0.15 0 0);
+    --card-bg: oklch(0.18 0 0);
+    --primary-color: oklch(0.94 0 0);
+    --secondary-color: oklch(0.8 0 0);
     --border-color: oklch(50% 10% 200 / 40%);
     --color-accent: oklch(0.65 0.3 280deg);
     --color-current: oklch(0.65 0 0);
   }
 }
 
-html.force-light {
-  --bg-color: oklch(0.98 0 0);              /* Very light gray */
-  --card-bg: oklch(1 0 0);                  /* White cards */
-  --primary-color: oklch(0.2 0 0);          /* Dark text */
-  --secondary-color: oklch(0.45 0 0);       /* Muted dark text */
+:root.force-light {
+  --bg-color: oklch(0.98 0 0);
+  --card-bg: oklch(1 0 0);
+  --primary-color: oklch(0.2 0 0);
+  --secondary-color: oklch(0.45 0 0);
   --border-color: oklch(80% 3% 200);
   --color-accent: oklch(0.65 0.3 280deg);
   --color-current: oklch(0.65 0 0);
 }
 
-html.force-dark {
-  --bg-color: oklch(0.15 0 0);              /* Dark gray background */
-  --card-bg: oklch(0.18 0 0);               /* Slightly lighter card */
-  --primary-color: oklch(0.94 0 0);         /* Bright white text */
-  --secondary-color: oklch(0.8 0 0);        /* Soft white for details */
+:root.force-dark {
+  --bg-color: oklch(0.15 0 0);
+  --card-bg: oklch(0.18 0 0);
+  --primary-color: oklch(0.94 0 0);
+  --secondary-color: oklch(0.8 0 0);
   --border-color: oklch(50% 10% 200 / 40%);
   --color-accent: oklch(0.65 0.3 280deg);
   --color-current: oklch(0.65 0 0);
 }
+
 
 
 /* === Dark/Light Forced Overrides ===
