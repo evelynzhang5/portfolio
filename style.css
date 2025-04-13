@@ -1,21 +1,21 @@
-/* Global Variables & Base Styles */
+/* Global Variables & Base Styles for Light Mode */
 :root {
-  /* Color Palette */
-  --primary-color: oklch(0.2 0 0);      /* For main headings and primary text */
-  --secondary-color: oklch(0.45 0 0);    /* For subheadings and details */
-  --accent-color: oklch(0.65 0.3 280deg); /* For interactive highlights & links */
+  --primary-color: oklch(0.2 0 0);
+  --secondary-color: oklch(0.45 0 0);
+  --accent-color: oklch(0.65 0.3 280deg);
   --current-color: oklch(0.65 0 0);
   --bg-color: #f8f9fb;
   --card-bg: #fff;
-  
-  /* Typography & Layout */
+  --border-color: oklch(80% 3% 200);
   --font-family: system-ui, sans-serif;
   --base-font-size: 1rem;
-  --header-size: 3rem;            /* Default H1 on general pages */
-  --resume-header-size: 2.75rem;    /* Resume page header H1 */
-  --subheader-size: 1.6rem;         /* Section headings */
+  --header-size: 3rem;
+  --resume-header-size: 2.75rem;
+  --subheader-size: 1.6rem;
   --max-content-width: 100ch;
 }
+
+/* OS-Based Dark Mode (Automatic) */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: #1a1a1a;
@@ -25,6 +25,25 @@
     --border-color: oklch(50% 10% 200 / 40%);
   }
 }
+
+/* Dark/Light Forced Overrides */
+:root.force-light {
+  --bg-color: #f8f9fb;
+  --card-bg: #fff;
+  --primary-color: oklch(0.2 0 0);
+  --secondary-color: oklch(0.45 0 0);
+  --border-color: oklch(80% 3% 200);
+}
+
+:root.force-dark {
+  --bg-color: #1a1a1a;
+  --card-bg: #222;
+  --primary-color: #f0f0f0;
+  --secondary-color: #ccc;
+  --border-color: oklch(50% 10% 200 / 40%);
+}
+
+/* ... The rest of your CSS remains unchanged ... */
 
 html {
   color-scheme: light dark;
@@ -84,6 +103,7 @@ nav a {
 nav a:hover {
   border-bottom: 0.4em solid var(--color-accent);
   background-color: oklch(0.95 0.1 280deg); 
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 
 }
 
