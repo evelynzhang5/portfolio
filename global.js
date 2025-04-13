@@ -48,4 +48,37 @@ for (let p of pages) {
     
     nav.append(a);
   }
+
+document.body.insertAdjacentHTML(
+    'afterbegin',
+    `
+    <label class="color-scheme">
+      Theme:
+      <select>
+        <option value="auto">Automatic</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </label>
+    `
+  );
+const select = document.querySelector('.color-scheme select');
+if (select) {
+    // On load, check for a saved color scheme:
+  if (localStorage.colorScheme) {
+      select.value = localStorage.colorScheme;
+      document.documentElement.style.setProperty('color-scheme', localStorage.colorScheme);
+    }
+    
+  select.addEventListener('input', (event) => {
+      let newScheme = event.target.value;
+      if (newScheme === "auto") {
+        document.documentElement.style.removeProperty('color-scheme');
+      } else {
+        document.documentElement.style.setProperty('color-scheme', newScheme);
+      }
+      localStorage.colorScheme = newScheme;
+      console.log('Color scheme changed to:', newScheme);
+    });
+  }
   
