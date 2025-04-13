@@ -17,6 +17,7 @@
   --max-content-width: 100ch;
 }
 
+
 /* .dark-mode {
   --bg-color: #1a1a1a;
   --card-bg: #222;
@@ -35,9 +36,9 @@
   }
 }
 
-/* html {
+html {
   accent-color: var(--accent-color);
-} */
+}
 
 
 
@@ -61,9 +62,7 @@ img {
   }
 
 
-html {
-  accent-color: var(--color-accent);
-}
+
 
 nav ul,
 nav li {
