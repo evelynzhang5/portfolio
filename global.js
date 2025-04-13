@@ -62,23 +62,29 @@ document.body.insertAdjacentHTML(
     </label>
     `
   );
+function setColorScheme(colorScheme) {
+    if (colorScheme === "auto") {
+      document.documentElement.style.removeProperty('color-scheme');
+    } else {
+      document.documentElement.style.setProperty('color-scheme', colorScheme);
+    }
+    localStorage.colorScheme = colorScheme;
+    console.log('Color scheme changed to:', colorScheme);
+  }
+  
+  // 4.5: On page load, read the saved user preference (if any) and apply it,
+  // and update the <select> value to match.
 const select = document.querySelector('.color-scheme select');
 if (select) {
-    // On load, check for a saved color scheme:
   if (localStorage.colorScheme) {
-      select.value = localStorage.colorScheme;
-      document.documentElement.style.setProperty('color-scheme', localStorage.colorScheme);
+      let savedScheme = localStorage.colorScheme;
+      select.value = savedScheme;
+      setColorScheme(savedScheme);
     }
-    
+    // 4.4: Attach an input event listener so that when the user changes the selection, we update the scheme.
   select.addEventListener('input', (event) => {
       let newScheme = event.target.value;
-      if (newScheme === "auto") {
-        document.documentElement.style.removeProperty('color-scheme');
-      } else {
-        document.documentElement.style.setProperty('color-scheme', newScheme);
-      }
-      localStorage.colorScheme = newScheme;
-      console.log('Color scheme changed to:', newScheme);
+      setColorScheme(newScheme);
     });
   }
   
