@@ -163,6 +163,7 @@ html {
   accent-color: var(--color-accent);
 }
 
+
 nav ul,
 nav li {
   display: contents;
@@ -170,7 +171,6 @@ nav li {
 nav {
   --border-color: oklch(50% 10% 200 / 40%);
   border-bottom-color: var(--border-color);
-  
 }
 
 nav {
@@ -205,6 +205,7 @@ nav a.current {
   /* Optional: to also change text color to grey, uncomment the line below */
   /* color: var(--color-current); */
 }
+
 
 
 .color-scheme {
