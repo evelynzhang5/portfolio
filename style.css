@@ -17,6 +17,15 @@
   --max-content-width: 100ch;
 }
 
+.dark-mode {
+  --bg-color: #1a1a1a;
+  --card-bg: #222;
+  --primary-color: #f0f0f0;
+  --secondary-color: #ccc;
+  --border-color: oklch(50% 10% 200 / 40%);
+}
+
+
 /* html {
   accent-color: var(--accent-color);
 } */
@@ -42,10 +51,6 @@ img {
     height: auto;
   }
 
-:root {
-  --color-accent: oklch(0.65 0.3 280deg);
-  --color-current: oklch(0.65 0 0);
-}
 
 html {
   accent-color: var(--color-accent);
