@@ -18,14 +18,13 @@
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color: #1a1a1a;                   /* Dark background */
-    --card-bg: #222;                       /* Darker card background */
-    --primary-color: #f0f0f0;               /* Light text */
-    --secondary-color: #ccc;               /* Slightly lighter secondary text */
-    --border-color: oklch(50% 10% 200 / 40%);/* Softer border for dark mode */
+    --bg-color: #1a1a1a;
+    --card-bg: #222;
+    --primary-color: #f0f0f0;
+    --secondary-color: #ccc;
+    --border-color: oklch(50% 10% 200 / 40%);
   }
 }
-
 
 html {
   color-scheme: light dark;
@@ -172,7 +171,7 @@ h1 {
 
 /* === Resume Visual Enhancements === */
 .resume {
-  background: var(--bg-color);
+  background: var(--bg-color); /* Uses variable that adapts in dark mode */
   padding-bottom: 4rem;
 }
 
@@ -204,7 +203,6 @@ h1 {
   text-decoration: underline;
 }
 
-/* Section "Card" Styles for Resume */
 .resume section {
   background: var(--card-bg);
   padding: 2rem;
@@ -220,11 +218,11 @@ h1 {
   font-size: var(--subheader-size);
   color: var(--primary-color);
   margin-bottom: 1rem;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid var(--border-color);
   padding-bottom: 0.4rem;
 }
 
-/* Resume Articles */
+/* Additional styling for resume articles and lists */
 .resume article + article {
   margin-top: 1.5rem;
 }
@@ -249,7 +247,6 @@ h1 {
   color: var(--primary-color);
 }
 
-/* Lists in Resume */
 .resume ul {
   padding-left: 1.5rem;
   margin-top: 0.5rem;
@@ -293,18 +290,3 @@ a:focus {
   }
 }
 
-/* Print Styles */
-@media print {
-  body, .resume {
-    background: #fff;
-    color: var(--primary-color);
-  }
-  .resume section {
-    box-shadow: none;
-    border: 1px solid #ccc;
-    page-break-inside: avoid;
-  }
-  nav, form, .projects {
-    display: none;
-  }
-}
