@@ -32,7 +32,7 @@
 
 /* === Dark/Light Forced Overrides === */
 /* (These classes can be applied by JavaScript to override the OS setting) */
-:root.force-light {
+html.force-light {
   --bg-color: oklch(0.98 0 0);
   --card-bg: oklch(1 0 0);
   --primary-color: oklch(0.2 0 0);
@@ -40,7 +40,7 @@
   --border-color: oklch(80% 3% 200);
 }
 
-:root.force-dark {
+html.force-dark {
   --bg-color: oklch(0.15 0 0);
   --card-bg: oklch(0.18 0 0);
   --primary-color: oklch(0.94 0 0);
