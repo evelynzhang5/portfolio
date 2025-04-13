@@ -2,8 +2,6 @@
 :root {
   --primary-color: oklch(0.2 0 0);
   --secondary-color: oklch(0.45 0 0);
-  --accent-color: oklch(0.65 0.3 280deg);
-  --current-color: oklch(0.65 0 0);
   --bg-color: #f8f9fb;
   --card-bg: #fff;
   --border-color: oklch(80% 3% 200);
@@ -33,6 +31,8 @@
   --primary-color: oklch(0.2 0 0);
   --secondary-color: oklch(0.45 0 0);
   --border-color: oklch(80% 3% 200);
+  --color-accent: oklch(0.65 0.3 280deg);
+  --color-current: oklch(0.65 0 0);
 }
 
 :root.force-dark {
