@@ -19,26 +19,17 @@
   --max-content-width: 100ch;
 }
 
-/* === OS-Based Dark Mode (Automatic) === */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: oklch(0.15 0 0);             /* Dark background (approx. 15% lightness) */
-    --card-bg: oklch(0.18 0 0);               /* Darker card background */
-    --primary-color: oklch(0.94 0 0);         /* Light text (approx. 94% lightness) */
-    --secondary-color: oklch(0.8 0 0);        /* Secondary text */
-    --border-color: oklch(50% 10% 200 / 40%);   /* Softer border for dark mode */
-  }
-}
 
-/* === Dark/Light Forced Overrides === */
+
+/* === Dark/Light Forced Overrides ===
 /* (These classes can be applied by JavaScript to override the OS setting) */
-html.force-light {
+/* html.force-light {
   --bg-color: oklch(0.98 0 0);
   --card-bg: oklch(1 0 0);
   --primary-color: oklch(0.2 0 0);
   --secondary-color: oklch(0.45 0 0);
   --border-color: oklch(80% 3% 200);
-}
+} 
 
 html.force-dark {
   --bg-color: oklch(0.15 0 0);
@@ -48,7 +39,7 @@ html.force-dark {
   --border-color: oklch(50% 10% 200 / 40%);
   --color-accent: oklch(0.65 0.3 280deg);
   --color-current: oklch(0.65 0 0);
-}
+} */
 
 /* === HTML & Color-Scheme Declaration === */
 html {
