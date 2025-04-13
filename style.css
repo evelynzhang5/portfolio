@@ -84,6 +84,8 @@ body {
     font: 100%/1.5 system-ui;
     max-width: 100ch;
     margin-inline: max(1em, (100% - 100ch) / 2);
+      background: var(--bg-color);
+    
   }
 
 img {
@@ -181,7 +183,10 @@ form button {
   gap: 1em;
   padding: 1em;
   margin: 0 auto; 
-}
+  background: var(--bg-color);
+  }
+  
+
 
 .projects article {
   display: grid;
@@ -208,7 +213,10 @@ h1 {
   font-size: 3rem;
 }
 
-
+.contact {
+  background: var(--bg-color);
+  
+}
 
 /* === Resume Visual Enhancements === */
 .resume {
