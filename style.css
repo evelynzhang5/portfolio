@@ -17,14 +17,23 @@
   --max-content-width: 100ch;
 }
 
-.dark-mode {
+/* .dark-mode {
   --bg-color: #1a1a1a;
   --card-bg: #222;
   --primary-color: #f0f0f0;
   --secondary-color: #ccc;
   --border-color: oklch(50% 10% 200 / 40%);
-}
+} */
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1a1a1a;
+    --card-bg: #222;
+    --primary-color: #f0f0f0;
+    --secondary-color: #ccc;
+    --border-color: oklch(50% 10% 200 / 40%);
+  }
+}
 
 /* html {
   accent-color: var(--accent-color);
