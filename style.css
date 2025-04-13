@@ -31,7 +31,7 @@
   }
 }
 
-:root.force-light {
+html.force-light {
   --bg-color: oklch(0.98 0 0);
   --card-bg: oklch(1 0 0);
   --primary-color: oklch(0.2 0 0);
@@ -41,7 +41,7 @@
   --color-current: oklch(0.65 0 0);
 }
 
-:root.force-dark {
+html.force-dark {
   --bg-color: oklch(0.15 0 0);
   --card-bg: oklch(0.18 0 0);
   --primary-color: oklch(0.94 0 0);
@@ -50,7 +50,6 @@
   --color-accent: oklch(0.65 0.3 280deg);
   --color-current: oklch(0.65 0 0);
 }
-
 
 
 /* === Dark/Light Forced Overrides ===
