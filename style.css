@@ -54,6 +54,7 @@ nav li {
 nav {
   --border-color: oklch(50% 10% 200 / 40%);
   border-bottom-color: var(--border-color);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
 nav {
@@ -107,6 +108,7 @@ form {
 form label {
   display: contents;
 }
+
 
 
 form input,
