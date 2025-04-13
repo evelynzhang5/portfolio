@@ -170,44 +170,40 @@ nav li {
 nav {
   --border-color: oklch(50% 10% 200 / 40%);
   border-bottom-color: var(--border-color);
+  
 }
-/* === Updated Navigation Bar Styles === */
 
 nav {
-  /* Override any previous settings to ensure high visibility */
-  background-color: #333;       /* Dark background */
-  padding: 1rem;                /* More padding for prominence */
   display: flex;
-  align-items: center;          /* Vertically centers the links */
-  justify-content: center;      /* Horizontally centers the links */
-  gap: 1rem;                  /* Space between links */
-  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1em;
+  border-bottom: 1px solid oklch(0.8 0 0); 
 }
 
 nav a {
-  /* Remove existing flex: 1 if you prefer fixed-size clickable elements */
+  flex: 1;
   text-decoration: none;
-  color: #fff;                  /* White text for high contrast */
+  color: inherit;
   text-align: center;
-  padding: 0.5rem 1rem;         /* Increase horizontal padding for button-like links */
+  padding: 0.5em;
   border-bottom: 2px solid transparent;
-  transition: background-color 0.2s ease, border-bottom 0.2s ease;
+  transition: border-bottom 0.2s ease, background-color 0.2s ease;
   box-sizing: border-box;
 }
 
-/* Hover & Focus States - for better feedback */
-nav a:hover,
-nav a:focus {
-  background-color: #444;       /* Slightly lighter on hover */
+
+nav a:hover {
   border-bottom: 0.4em solid var(--color-accent);
-  outline: none;
+  /* background-color: oklch(0.95 0.1 280deg);  */
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+
 }
 
-/* Active (current) page style */
+
 nav a.current {
-  background-color: #555;       /* Different background to highlight the current page */
   border-bottom: 0.4em solid var(--color-current);
-  padding-bottom: calc(1rem - 0.4em); /* Adjust padding if needed for consistency */
+  padding-bottom: calc(0.5em - 0.4em); /* Adjust padding to maintain overall height */
+  /* Optional: to also change text color to grey, uncomment the line below */
+  /* color: var(--color-current); */
 }
 
 
