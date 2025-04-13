@@ -18,7 +18,16 @@
   --max-content-width: 100ch;
 }
 
-
+/* Dark Mode Overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1a1a1a;                   /* Dark background */
+    --card-bg: #222;                       /* Darker card background */
+    --primary-color: #f0f0f0;               /* Light text */
+    --secondary-color: #ccc;               /* Slightly lighter secondary text */
+    --border-color: oklch(50% 10% 200 / 40%);/* Softer border for dark mode */
+  }
+}
 
 html {
   /* Let the browser know that our site supports both light and dark modes */
@@ -154,7 +163,6 @@ html {
   accent-color: var(--color-accent);
 }
 
-
 nav ul,
 nav li {
   display: contents;
@@ -184,8 +192,7 @@ nav a {
 
 nav a:hover {
   border-bottom: 0.4em solid var(--color-accent);
-  /* background-color: oklch(0.95 0.1 280deg);  */
-  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+  background-color: oklch(0.95 0.1 280deg); 
 
 }
 
@@ -196,7 +203,6 @@ nav a.current {
   /* Optional: to also change text color to grey, uncomment the line below */
   /* color: var(--color-current); */
 }
-
 
 
 .color-scheme {
