@@ -1,4 +1,4 @@
-/* Global Variables & Base Styles */
+/* Global Variables & Base Styles for Light Mode */
 :root {
   /* Color Palette for Light Mode */
   --primary-color: oklch(0.2 0 0);         /* Primary text color */
@@ -18,20 +18,22 @@
   --max-content-width: 100ch;
 }
 
-/* Dark Mode Overrides */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: #1a1a1a;                   /* Dark background */
-    --card-bg: #222;                       /* Darker card background */
-    --primary-color: #f0f0f0;               /* Light text */
-    --secondary-color: #ccc;               /* Slightly lighter secondary text */
-    --border-color: oklch(50% 10% 200 / 40%);/* Softer border for dark mode */
-  }
+/* Manually controlled Dark Mode Overrides */
+.dark-mode {
+  /* These variable values override the defaults when .dark-mode is added to the <html> or <body> */
+  --bg-color: #1a1a1a;                   /* Dark background */
+  --card-bg: #222;                       /* Darker card background */
+  --primary-color: #f0f0f0;               /* Light text */
+  --secondary-color: #ccc;               /* Slightly lighter secondary text */
+  --border-color: oklch(50% 10% 200 / 40%);/* Softer border for dark mode */
 }
 
+/* Remove any OS automatic color-scheme setting */
 html {
-  /* Let the browser know that our site supports both light and dark modes */
-  color-scheme: light dark;
+  /* Uncomment the line below if you want to test OS dark mode—
+     for purely manual control, leave it out or remove it */
+  /* color-scheme: light; */
+  accent-color: var(--accent-color);
 }
 
 body {
@@ -45,7 +47,7 @@ body {
 
 /* --- Resume Visual Enhancements --- */
 .resume {
-  background: var(--bg-color); /* Uses variable that adapts in dark mode */
+  background: var(--bg-color); /* Will use the variable that can be overridden manually */
   padding-bottom: 4rem;
 }
 
@@ -132,82 +134,40 @@ body {
   color: var(--primary-color);
 }
 
+/* Navigation, Forms, and Other Global Styles remain the same as before */
 
-/* html {
-  accent-color: var(--accent-color);
-} */
-
-
-
-html {
-  color-scheme: light dark;
-}
-
-
-body {
-    font: 100%/1.5 system-ui;
-    max-width: 100ch;
-    margin-inline: max(1em, (100% - 100ch) / 2);
-  }
-img {
-    max-width: 100%;
-    height: auto;
-  }
-
-:root {
-  --color-accent: oklch(0.65 0.3 280deg);
-  --color-current: oklch(0.65 0 0);
-}
-
-html {
-  accent-color: var(--color-accent);
-}
-
-
-nav ul,
-nav li {
-  display: contents;
-}
-nav {
-  --border-color: oklch(50% 10% 200 / 40%);
-  border-bottom-color: var(--border-color);
-}
-
+/* Example Navigation Styling */
 nav {
   display: flex;
   margin-bottom: 1em;
-  border-bottom: 1px solid oklch(0.8 0 0); 
+  border-bottom: 1px solid var(--border-color);
+  background-color: #333; /* Or change as needed */
 }
 
 nav a {
   flex: 1;
   text-decoration: none;
-  color: inherit;
+  color: #fff; /* Use high contrast for better visibility */
   text-align: center;
-  padding: 0.5em;
+  padding: 0.5em 1rem;
   border-bottom: 2px solid transparent;
   transition: border-bottom 0.2s ease, background-color 0.2s ease;
   box-sizing: border-box;
 }
 
-
-nav a:hover {
-  border-bottom: 0.4em solid var(--color-accent);
-  /* background-color: oklch(0.95 0.1 280deg);  */
-  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
-
+nav a:hover,
+nav a:focus {
+  background-color: color-mix(in oklch, var(--accent-color), canvas 85%);
+  border-bottom: 0.4em solid var(--accent-color);
+  outline: none;
 }
-
 
 nav a.current {
-  border-bottom: 0.4em solid var(--color-current);
-  padding-bottom: calc(0.5em - 0.4em); /* Adjust padding to maintain overall height */
-  /* Optional: to also change text color to grey, uncomment the line below */
-  /* color: var(--color-current); */
+  border-bottom: 0.4em solid var(--current-color);
+  padding-bottom: calc(0.5em - 0.4em);
 }
 
-
-
+/* Dark Mode Switcher */
 .color-scheme {
   position: absolute;
   top: 1rem;
@@ -215,6 +175,7 @@ nav a.current {
   font-size: 80%;
   font-family: inherit;
 }
+
 
 form {
   display: grid;
