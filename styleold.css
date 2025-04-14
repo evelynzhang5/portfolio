@@ -1,0 +1,366 @@
+:root {
+  /* Color Palette (using OKLCH) */
+  --primary-color: oklch(0.2 0 0);            /* Dark text for headings in light mode */
+  --secondary-color: oklch(0.45 0 0);          /* Subtle text for details */
+  --accent-color: oklch(0.65 0.3 280deg);       /* For interactive highlights & links */
+  --current-color: oklch(0.65 0 0);
+  /* Light mode backgrounds:
+      #f8f9fb is very light—here approximated as nearly white */
+  --bg-color: oklch(0.98 0 0);                 /* Overall page background for light mode */
+  --card-bg: oklch(1 0 0);                     /* Pure white for card background */
+  --border-color: oklch(80% 3% 200);           /* For borders in light mode */
+  
+  /* Typography & Layout */
+  --font-family: system-ui, sans-serif;
+  --base-font-size: 1rem;
+  --header-size: 3rem;                       /* Default H1 on general pages */
+  --resume-header-size: 2.75rem;               /* Resume page header H1 */
+  --subheader-size: 1.6rem;                    /* Section headings */
+  --max-content-width: 100ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: oklch(0.15 0 0);
+    --card-bg: oklch(0.18 0 0);
+    --primary-color: oklch(0.94 0 0);
+    --secondary-color: oklch(0.8 0 0);
+    --border-color: oklch(50% 10% 200 / 40%);
+    --color-accent: oklch(0.65 0.3 280deg);
+    --color-current: oklch(0.65 0 0);
+    --nav-highlight: color-mix(in oklch, var(--color-current) 15%, var(--bg-color) 85%);
+  }
+}
+
+html.force-light {
+  --bg-color: oklch(0.98 0 0);
+  --card-bg: oklch(1 0 0);
+  --primary-color: oklch(0.2 0 0);
+  --secondary-color: oklch(0.45 0 0);
+  --border-color: oklch(80% 3% 200);
+  --color-accent: oklch(0.65 0.3 280deg);
+  --color-current: oklch(0.65 0 0);
+  --nav-highlight: oklch(from var(--color-accent) 95% 5% h);
+
+}
+
+html.force-dark {
+  --bg-color: oklch(0.15 0 0);
+  --card-bg: oklch(0.18 0 0);
+  --primary-color: oklch(0.94 0 0);
+  --secondary-color: oklch(0.8 0 0);
+  --border-color: oklch(50% 10% 200 / 40%);
+  --color-accent: oklch(0.65 0.3 280deg);
+  --color-current: oklch(0.65 0 0);
+  --nav-highlight: color-mix(in oklch, var(--color-current) 15%, var(--bg-color) 85%);
+}
+
+
+/* === Dark/Light Forced Overrides ===
+/* (These classes can be applied by JavaScript to override the OS setting) */
+/* html.force-light {
+  --bg-color: oklch(0.98 0 0);
+  --card-bg: oklch(1 0 0);
+  --primary-color: oklch(0.2 0 0);
+  --secondary-color: oklch(0.45 0 0);
+  --border-color: oklch(80% 3% 200);
+} 
+
+html.force-dark {
+  --bg-color: oklch(0.15 0 0);
+  --card-bg: oklch(0.18 0 0);
+  --primary-color: oklch(0.94 0 0);
+  --secondary-color: oklch(0.8 0 0);
+  --border-color: oklch(50% 10% 200 / 40%);
+  --color-accent: oklch(0.65 0.3 280deg);
+  --color-current: oklch(0.65 0 0);
+} */
+
+/* === HTML & Color-Scheme Declaration === */
+html {
+  /* Tells the browser that the site supports both light and dark modes.
+     (Note: This only affects some built-in UI elements.) */
+  color-scheme: light dark;
+  accent-color: var(--color-accent);
+}
+
+body {
+  font: 100%/1.5 system-ui;
+  max-width: 100ch;
+  margin-inline: max(1em, (100% - 100ch) / 2);
+  background: var(--bg-color);
+  color: var(--primary-color); /* ✅ Add this line */
+}
+
+
+img {
+    display: block;
+    max-width: 100%;
+    margin: 1rem auto;
+
+    height: auto;
+  }
+
+nav ul,
+nav li {
+  display: contents;
+}
+/* nav {
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom-color: var(--border-color);
+} */
+nav a {
+  color: var(--primary-color); /* ✅ Set color explicitly */
+  flex: 1;
+  text-decoration: none;
+  text-align: center;
+  padding: 0.5em;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.2s ease, background-color 0.2s ease;
+  box-sizing: border-box;
+}
+p {
+  color: var(--secondary-color);
+}
+
+
+nav {
+  display: flex;
+  margin-bottom: 1em;
+  background: var(--bg-color); /* ✅ Make nav match current background */
+  border-bottom: 1px solid var(--border-color);
+}
+
+nav a:hover {
+  /* background-color: oklch(from var(--color-accent) 95% 5% h); */
+  background-color: var(--nav-highlight);
+  border-bottom: 0.4em solid var(--color-accent);
+}
+
+
+
+nav a.current {
+    border-bottom: 0.4em solid var(--color-current);
+    padding-bottom: calc(0.5em - 0.4em);
+    font-weight: bold;
+    color: var(--primary-color);
+    background-color: color-mix(in oklch, var(--color-current) 15%, var(--bg-color) 85%);
+  }
+  
+
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  font-family: inherit;
+  color: var(--primary-color);
+}
+
+/* Explicitly style the select dropdown */
+.color-scheme select {
+  background-color: var(--card-bg);
+  color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  padding: 0.3em 0.5em;
+  font: inherit;
+  border-radius: 6px;
+  appearance: none; /* Optional: resets native styling for consistency */
+  cursor: pointer;
+}
+  
+
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em; 
+  max-width: 800px;
+  margin: 0 auto;  
+}
+
+form label {
+  display: contents;
+}
+
+
+
+form input,
+form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5em; 
+  font: inherit;   
+}
+
+
+form button {
+  grid-column: 1 / -1;
+  padding: 0.75em 1em;
+  cursor: pointer;
+  font: inherit;  
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1em;
+  padding: 1em;
+  margin: 0 auto; 
+  background: var(--bg-color);
+  }
+  
+
+
+.projects article {
+  display: grid;
+  grid-template-rows: subgrid;  
+  grid-row: span 3;             
+  gap: 0.5em;                 
+  padding: 0.5em;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+}
+
+
+.projects article h2 {
+  margin: 0;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  text-wrap: balance;
+  color: var(--primary-color); /* ✅ Add this */
+}
+
+
+h1 {
+  font-size: 3rem;
+}
+
+.contact {
+  background: var(--bg-color);
+  
+}
+
+/* === Resume Visual Enhancements === */
+.resume {
+  background: var(--bg-color); /* Uses variable that adapts in dark mode */
+  padding-bottom: 4rem;
+}
+
+.resume header {
+  text-align: center;
+  margin-block: 3rem 2rem;
+}
+
+.resume header h1 {
+  font-size: var(--resume-header-size);
+  margin-bottom: 0.3em;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.resume header p {
+  font-size: 1rem;
+  color: var(--secondary-color);
+}
+
+.resume header a {
+  color: var(--accent-color);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.resume header a:hover {
+  text-decoration: underline;
+}
+
+.resume section {
+  background: var(--card-bg);
+  padding: 2rem;
+  margin-block: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.03);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.resume section h2 {
+  font-size: var(--subheader-size);
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.4rem;
+}
+
+/* Additional styling for resume articles and lists */
+.resume article + article {
+  margin-top: 1.5rem;
+}
+
+.resume article header h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 0.25rem;
+}
+
+.resume article header p,
+.resume time {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.resume article p {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.resume ul {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.resume ul li {
+  margin-bottom: 0.35rem;
+  line-height: 1.5;
+  color: var(--primary-color);
+}
+
+.resume a:hover {
+  text-decoration: underline;
+}
+
+/* Interactive States for Links & Focus */
+a:hover,
+a:focus {
+  text-decoration: underline;
+  outline: none;
+}
+
+a:focus {
+  box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.5);
+}
+
+/* Responsive Enhancements */
+@media (max-width: 800px) {
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .resume section, .projects article {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .resume header h1 {
+    font-size: 2rem;
+  }
+}
+
