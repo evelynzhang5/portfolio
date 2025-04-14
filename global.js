@@ -97,20 +97,16 @@ if (select) {
   });
 }
 
-const form = document.querySelector("form");
+const form = document.querySelector("#contact-form");
 
 form?.addEventListener("submit", (e) => {
-e.preventDefault(); // prevent browser's default mailto behavior
+  e.preventDefault();
 
-const data = new FormData(form);
-const params = new URLSearchParams();
+  const data = new FormData(form);
+  const subject = encodeURIComponent(data.get("subject"));
+  const body = encodeURIComponent(data.get("body"));
 
-for (let [name, value] of data) {
-  params.append(name, encodeURIComponent(value));
-}
+  const mailto = `${form.action}?subject=${subject}&body=${body}`;
 
-// Construct the mailto link
-const url = `${form.action}?${params.toString()}`;
-
-location.href = url;
+  location.href = mailto;
 });
