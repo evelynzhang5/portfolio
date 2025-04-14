@@ -127,19 +127,19 @@ nav {
   border-bottom: 1px solid var(--border-color);
 }
 
-
 nav a:hover {
-  border-bottom: 0.4em solid var(--color-accent);
   background-color: color-mix(in oklch, var(--color-accent) 15%, var(--bg-color) 85%);
+  border-bottom: 0.4em solid var(--color-accent);
 }
 
 
 
 nav a.current {
+  background-color: color-mix(in oklch, var(--color-accent) 15%, var(--bg-color) 85%);
   border-bottom: 0.4em solid var(--color-current);
-  padding-bottom: calc(0.5em - 0.4em); /* Adjust padding to maintain overall height */
-  /* Optional: to also change text color to grey, uncomment the line below */
-  /* color: var(--color-current); */
+  padding-bottom: calc(0.5em - 0.4em);
+  font-weight: bold;
+  color: var(--primary-color);
 }
 
 
