@@ -162,6 +162,27 @@ font: inherit;
 cursor: pointer;
 }
 
+
+form input,
+form textarea {
+background: canvas;
+color: canvastext;
+border: 1px solid oklch(50% 10% 200 / 40%);
+font: inherit;
+padding: 0.5em;
+box-sizing: border-box;
+}
+
+form button {
+grid-column: 1 / -1;
+background: canvas;
+color: canvastext;
+border: 1px solid oklch(50% 10% 200 / 40%);
+padding: 0.75em 1em;
+font: inherit;
+cursor: pointer;
+}
+
 /* === Resume / Content Sections === */
 .resume, .projects, .contact {
 background: canvas;

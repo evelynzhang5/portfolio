@@ -96,3 +96,21 @@ if (select) {
     setColorScheme(e.target.value);
   });
 }
+
+const form = document.querySelector("form");
+
+form?.addEventListener("submit", (e) => {
+e.preventDefault(); // prevent browser's default mailto behavior
+
+const data = new FormData(form);
+const params = new URLSearchParams();
+
+for (let [name, value] of data) {
+  params.append(name, encodeURIComponent(value));
+}
+
+// Construct the mailto link
+const url = `${form.action}?${params.toString()}`;
+
+location.href = url;
+});
