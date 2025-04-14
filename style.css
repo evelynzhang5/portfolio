@@ -131,7 +131,7 @@ nav {
 nav a:hover {
   border-bottom: 0.4em solid var(--color-accent);
   background-color: oklch(0.95 0.1 280deg); 
-  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+  background-color: color-mix(in oklch, var(--color-accent), var(--bg-color) 85%);
 
 }
 
