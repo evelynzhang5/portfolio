@@ -19,6 +19,14 @@ html {
 --max-content-width: 100ch;
 }
 
+html.force-light {
+    color-scheme: light;
+  }
+  
+html.force-dark {
+color-scheme: dark;
+}
+
 body {
 background: canvas;
 color: canvastext;
