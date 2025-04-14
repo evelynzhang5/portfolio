@@ -136,12 +136,14 @@ nav a:hover {
 
 
 nav a.current {
-  /* background-color: color-mix(in oklch, var(--color-accent) 15%, var(--bg-color) 85%); */
-  border-bottom: 0.4em solid var(--color-current);
-  padding-bottom: calc(0.5em - 0.4em);
-  font-weight: bold;
-  color: var(--primary-color);
-}
+    border-bottom: 0.4em solid var(--color-current);
+    padding-bottom: calc(0.5em - 0.4em);
+    font-weight: bold;
+    color: var(--primary-color);
+    background-color: color-mix(in oklch, var(--color-current) 15%, var(--bg-color) 85%);
+  }
+  
+
 
 .color-scheme {
   position: absolute;
