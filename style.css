@@ -35,26 +35,40 @@ margin: 1rem auto;
 }
 
 
+
+/* === Projects Grid === */
 .projects {
 display: grid;
 grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
 gap: 1em;
 padding: 1em;
-margin: 0 auto; 
-background: var(--bg-color);
+margin: 0 auto;
+background: canvas;
 }
 
 .projects article {
 display: grid;
-grid-template-rows: subgrid;  
-grid-row: span 3;             
-gap: 0.5em;                 
-padding: 0.5em;
+grid-template-rows: subgrid;
+grid-row: span 3;
+gap: 0.5em;
+padding: 1em;
+border: 1px solid oklch(50% 10% 200 / 40%);
+border-radius: 8px;
+background: canvas;
 }
 
 .projects article h2 {
 margin: 0;
+font-size: 1.2rem;
+font-weight: 600;
+color: canvastext;
 }
+
+.projects article p {
+margin: 0;
+color: canvastext;
+}
+
 
 /* === Navigation === */
 nav {
