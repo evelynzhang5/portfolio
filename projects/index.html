@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!-- Put this at the top of your <head> in every HTML file -->
+<script>
+  const saved = localStorage.colorScheme;
+  if (saved === "light") {
+    document.documentElement.classList.add("force-light");
+  } else if (saved === "dark") {
+    document.documentElement.classList.add("force-dark");
+  }
+</script>
+
 <head>
   <meta charset="UTF-8">
   <title>Projects: Personal site and portfolio</title>
