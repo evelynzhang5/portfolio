@@ -63,26 +63,22 @@ document.body.insertAdjacentHTML(
     `
   );
 
-  
 function setColorScheme(colorScheme) {
-  document.documentElement.classList.remove("force-light", "force-dark");
-
-  if (colorScheme === "auto") {
-    // Let browser use the OS-level preference via media query
-    return;
+    document.documentElement.classList.remove("force-light", "force-dark");
+  
+    if (colorScheme === "auto") {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.classList.add(prefersDark ? "force-dark" : "force-light");
+    } else if (colorScheme === "light") {
+      document.documentElement.classList.add("force-light");
+    } else if (colorScheme === "dark") {
+      document.documentElement.classList.add("force-dark");
+    }
+  
+    localStorage.colorScheme = colorScheme;
+    console.log("Color scheme changed to:", colorScheme);
   }
-
-  if (colorScheme === "light") {
-    document.documentElement.classList.add("force-light");
-  } else if (colorScheme === "dark") {
-    document.documentElement.classList.add("force-dark");
-  }
-
-  // Save to localStorage
-  localStorage.colorScheme = colorScheme;
-  console.log("Color scheme changed to:", colorScheme);
-}
-
+  
 
 // Initialize theme from saved preference on page load
 const select = document.querySelector(".color-scheme select");

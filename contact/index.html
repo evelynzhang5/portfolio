@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Put this at the top of your <head> in every HTML file -->
+<head>
   <script>
     const saved = localStorage.colorScheme;
   
     function applyAutoScheme() {
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.classList.add("force-dark");
-      } else {
-        document.documentElement.classList.add("force-light");
-      }
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.classList.add(prefersDark ? "force-dark" : "force-light");
     }
   
     if (saved === "light") {
@@ -17,14 +15,11 @@
     } else if (saved === "dark") {
       document.documentElement.classList.add("force-dark");
     } else {
-      // "auto" or missing value
+      // auto or not set
       applyAutoScheme();
     }
   </script>
   
-  
-  
-<head>
   <meta charset="UTF-8">
   <title>Contact: Personal site and portfolio</title>
   <link rel="stylesheet" href="/portfolio/style.css">

@@ -1,30 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <!-- Put this at the top of your <head> in every HTML file -->
-    <script>
-      const saved = localStorage.colorScheme;
-    
-      function applyAutoScheme() {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          document.documentElement.classList.add("force-dark");
-        } else {
-          document.documentElement.classList.add("force-light");
-        }
-      }
-    
-      if (saved === "light") {
-        document.documentElement.classList.add("force-light");
-      } else if (saved === "dark") {
-        document.documentElement.classList.add("force-dark");
-      } else {
-        // "auto" or missing value
-        applyAutoScheme();
-      }
-    </script>
-    
-    
-
 <head>
+  <script>
+    const saved = localStorage.colorScheme;
+  
+    function applyAutoScheme() {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.classList.add(prefersDark ? "force-dark" : "force-light");
+    }
+  
+    if (saved === "light") {
+      document.documentElement.classList.add("force-light");
+    } else if (saved === "dark") {
+      document.documentElement.classList.add("force-dark");
+    } else {
+      // auto or not set
+      applyAutoScheme();
+    }
+  </script>
+  
   <meta charset="UTF-8">
   <title>Yunwei (Evelyn) Zhang: CV/Resume</title>
   <link rel="stylesheet" href="/portfolio/style.css">
