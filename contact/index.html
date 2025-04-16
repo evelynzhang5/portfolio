@@ -3,12 +3,25 @@
 <!-- Put this at the top of your <head> in every HTML file -->
   <script>
     const saved = localStorage.colorScheme;
+  
+    function applyAutoScheme() {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add("force-dark");
+      } else {
+        document.documentElement.classList.add("force-light");
+      }
+    }
+  
     if (saved === "light") {
       document.documentElement.classList.add("force-light");
     } else if (saved === "dark") {
       document.documentElement.classList.add("force-dark");
+    } else {
+      // "auto" or undefined
+      applyAutoScheme();
     }
   </script>
+  
   
 <head>
   <meta charset="UTF-8">
