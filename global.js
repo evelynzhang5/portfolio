@@ -63,7 +63,7 @@ document.body.insertAdjacentHTML(
     `
   );
 
-function setColorScheme(colorScheme) {
+  function setColorScheme(colorScheme) {
     document.documentElement.classList.remove("force-light", "force-dark");
   
     if (colorScheme === "auto") {
