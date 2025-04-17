@@ -119,15 +119,19 @@ color: inherit;
 }
 
 .color-scheme select {
-background: canvas;
-color: canvastext;
-font: inherit;
-border: 1px solid oklch(50% 10% 200 / 40%);
-border-radius: 6px;
-padding: 0.3em 0.5em;
-appearance: auto;
-cursor: pointer;
+  appearance: auto;
+  -webkit-appearance: auto;
+  -moz-appearance: auto;
+  background-color: canvas;
+  color: canvastext;
+  font: inherit;
+  font-size: 1em;
+  border: 1px solid oklch(50% 10% 200 / 40%);
+  border-radius: 6px;
+  padding: 0.3em 2em 0.3em 0.5em; /* right padding gives room for system arrow */
+  cursor: pointer;
 }
+
 
 /* === Forms === */
 form {
