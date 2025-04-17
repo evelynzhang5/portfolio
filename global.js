@@ -49,36 +49,40 @@ for (let p of pages) {
     nav.append(a);
   }
 
-document.body.insertAdjacentHTML(
-    'afterbegin',
-    `
-    <label class="color-scheme">
-      Theme:
-      <select>
-        <option value="auto">Automatic</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
-    </label>
-    `
-  );
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+const autoLabel = `Automatic (${prefersDark ? "Dark" : "Light"})`;
 
-  function setColorScheme(colorScheme) {
-    document.documentElement.classList.remove("force-light", "force-dark");
+document.body.insertAdjacentHTML(
+  'afterbegin',
+  `
+  <label class="color-scheme">
+    Theme:
+    <select>
+      <option value="auto">${autoLabel}</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+  </label>
+  `
+);
   
-    if (colorScheme === "auto") {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      document.documentElement.classList.add(prefersDark ? "force-dark" : "force-light");
-    } else if (colorScheme === "light") {
-      document.documentElement.classList.add("force-light");
-    } else if (colorScheme === "dark") {
-      document.documentElement.classList.add("force-dark");
-    }
-  
-    localStorage.colorScheme = colorScheme;
-    console.log("Color scheme changed to:", colorScheme);
+
+function setColorScheme(colorScheme) {
+  document.documentElement.classList.remove("force-light", "force-dark");
+
+  if (colorScheme === "auto") {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.classList.add(prefersDark ? "force-dark" : "force-light");
+  } else if (colorScheme === "light") {
+    document.documentElement.classList.add("force-light");
+  } else if (colorScheme === "dark") {
+    document.documentElement.classList.add("force-dark");
   }
-  
+
+  localStorage.colorScheme = colorScheme;
+  console.log("Color scheme changed to:", colorScheme);
+}
+
 
 // Initialize theme from saved preference on page load
 const select = document.querySelector(".color-scheme select");
