@@ -19,10 +19,10 @@ import { fetchJSON, renderProjects, fetchGitHubData } from '/portfolio/global.js
 
   const username = 'evelynzhang5';          // ← replace this!
   const githubData = await fetchGitHubData(username);
-  const statsContainer = document.querySelector('#profile-stats');
+  const profileStats = document.querySelector('#profile-stats');
 
-  if (statsContainer) {
-    statsContainer.innerHTML = `
+  if (profileStats) {
+    profileStats.innerHTML = `
       <dl class="stats-grid">
         <dt>Public Repos:</dt><dd>${githubData.public_repos ?? 0}</dd>
         <dt>Public Gists:</dt><dd>${githubData.public_gists ?? 0}</dd>
