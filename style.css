@@ -250,6 +250,23 @@ font-size: var(--header-size);
 p {
 color: canvastext;
 }
+/* styles.css */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.stats-grid dt {
+  grid-row: 1;
+  font-weight: bold;
+}
+
+.stats-grid dd {
+  grid-row: 2;
+  margin: 0;
+}
 
 /* === Responsive === */
 @media (max-width: 800px) {

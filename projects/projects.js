@@ -14,7 +14,7 @@ import { fetchJSON, renderProjects } from '/portfolio/global.js';
     // if you want to preserve any existing text, grab it first:
     const baseText = titleEl.textContent.trim();
     const count    = Array.isArray(projects) ? projects.length : 0;
-    titleEl.textContent = `${baseText} (${count})`;
+    titleEl.textContent = `${count} ${baseText}`;
     }
 
 

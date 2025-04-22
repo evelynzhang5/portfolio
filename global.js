@@ -183,3 +183,13 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
    containerElement.appendChild(article);
  });
 }
+// global.js
+// … your existing fetchJSON & renderProjects …
+
+/**
+ * Fetch public profile data for the given GitHub username.
+ * Returns an object with fields like `public_repos`, `followers`, etc.
+ */
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}
