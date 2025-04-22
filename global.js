@@ -106,7 +106,7 @@ window
     }
   });
 
-// === Enhanced Contact Form ===
+
 const form = document.querySelector("#contact-form");
 
 form?.addEventListener("submit", (e) => {
@@ -119,3 +119,67 @@ form?.addEventListener("submit", (e) => {
   const mailto = `${form.action}?subject=${subject}&body=${body}`;
   location.href = mailto;
 });
+
+
+export async function fetchJSON(url) {
+  try {
+    const response = await fetch(url);
+    console.log('Fetch response:', response);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+    return [];
+  }
+}
+
+/**
+ * Render a list of projects into `containerElement`.
+ * @param {Array<Object>} projects – array of { title, image, description, … }
+ * @param {HTMLElement} containerElement – where to put the <article>s
+ * @param {string} headingLevel – e.g. 'h2', 'h3'; defaults to 'h2'
+ */
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+ // Validate container
+ if (!(containerElement instanceof HTMLElement)) {
+   console.error('Invalid container element:', containerElement);
+   return;
+ }
+
+ // Clear out any old content
+ containerElement.innerHTML = '';
+
+ // Handle empty or non‐array data
+ if (!Array.isArray(projects) || projects.length === 0) {
+   const placeholder = document.createElement('p');
+   placeholder.textContent = 'No projects to display.';
+   containerElement.appendChild(placeholder);
+   return;
+ }
+
+ // Sanitize headingLevel
+ const tag = /^h[1-6]$/.test(headingLevel) ? headingLevel : 'h2';
+
+ // Generate one <article> per project
+ projects.forEach((project) => {
+   const article = document.createElement('article');
+
+   // Fallbacks for missing data
+   const title       = project.title       || 'Untitled project';
+   const imgMarkup   = project.image
+                         ? `<img src="${project.image}" alt="${title}">`
+                         : `<p><em>(No image provided)</em></p>`;
+   const description = project.description || 'No description available.';
+
+   article.innerHTML = `
+     <${tag}>${title}</${tag}>
+     ${imgMarkup}
+     <p>${description}</p>
+   `;
+
+   containerElement.appendChild(article);
+ });
+}
