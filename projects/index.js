@@ -3,12 +3,13 @@ import { fetchJSON, renderProjects, fetchGitHubData } from '/portfolio/global.js
 
 (async function() {
   // 1️⃣ Load *all* projects from your JSON
-  const projects = await fetchJSON('/portfolio/lib/project.json');
+  const projects = await fetchJSON('/portfolio/lib/projects.json');
 
   // 2️⃣ Keep only the first three
   const latestThree = Array.isArray(projects) 
     ? projects.slice(0, 3) 
     : [];
+
 
   // 3️⃣ Find the container on the home page
   const container = document.querySelector('.projects');
