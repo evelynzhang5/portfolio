@@ -1,19 +1,22 @@
 [
     {
-        "title": "DSC106",
+        "title": "Salt Shock: Processed Foods(NOVA 2) Have the HIghest Median Sodium Content",
         "year": "2025",
         "image": "/portfolio/images/dsc106_project1.png",
-        "description": "\n        \n      "
+        "description": "In my above visualization, I explored how sodium content (grams per 100g of product) varies across the four NOVA food processing categories based on the NOVA classification system. While ultra-processed foods are often seen as nutritionally inferior and are expected to contain more added components like salt, after a thorough examination of the distribution of sodium across unprocessed, culinary ingredient, processed, and ultra-processed foods in the given dataset grocerydb.csv, I was able to challenge such assumption above and concluded that surprisingly Processed food(NOVA 2) has highest median sodium content."
+
     },
     {
-        "title": "Repudiandae quisquam ea ratione.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "\n        \n      "
+        "title": "Recipe Rating Predictions Based on MEAT Inclusion",
+        "year":"2025",
+        "image": "/portfolio/images/meat.png",
+        "description": "In this project, we decided to explore the relationship between recipe ratings and the nutrition information.we are interested in investigating relationship between the meat inclusion of recipes and their user ratings. In particular, we wonder if recipes with meat tagged will get lower ratings due to consumer’s expectations for healthier, more sustainable eating options. The dataset we are using contains recipes and ratings from food.com. We then get p-value of 0.0, which is less than 0.05. As a result, we reject the null hypothesis and conclude that people rate recipes with meat in their tag lower than recipes without meat in their tag."
     },
     {
-        "title": "Nesciunt ipsam magnam qui?",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "\n        \n      "
+        "title": "Can Relationship Affect Serial Killer's Weapon Choice?",
+        "year":"2024",
+        "image": "/portfolio/images/confusion.png",
+        "description": "The relationship between an offender and their victim has long been a focal point in criminology and sociology because it can significantly influence the dynamics of violent incidents. In this research, we attempt to understand and investigate how the relationship between the offender and victim influences the choice of weapon in solved homicide incidents happened from 2000 till now in Alaska.We use a Random Forest model to predict weapon choice based on the relationship between the offender and the victim."
     },
     {
         "title": "Numquam placeat perferendis error!",
