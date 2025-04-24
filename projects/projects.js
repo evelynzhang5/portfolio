@@ -6,9 +6,6 @@ import { fetchJSON, renderProjects } from '/portfolio/global.js';
   const projectsContainer = document.querySelector('.projects');
   renderProjects(projects, projectsContainer, 'h2');
 
-  // … after renderProjects(projects, container, 'h2');
-  // … after renderProjects(projects, container, 'h2');
-
     const titleEl = document.querySelector('.projects-title');
     if (titleEl) {
     // if you want to preserve any existing text, grab it first:
