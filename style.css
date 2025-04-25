@@ -250,25 +250,25 @@ font-size: var(--header-size);
 p {
 color: canvastext;
 }
-/* styles.css */
+
+
 #profile-stats dl {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.5rem;
   font-family: sans-serif;
 }
-
 #profile-stats dt {
   font-weight: bold;
   text-align: center;
   grid-row: 1;
 }
-
 #profile-stats dd {
   margin: 0;
   text-align: center;
   grid-row: 2;
 }
+
 
 /* === Responsive === */
 @media (max-width: 800px) {
