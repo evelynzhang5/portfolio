@@ -251,21 +251,23 @@ p {
 color: canvastext;
 }
 /* styles.css */
-.stats-grid {
+#profile-stats dl {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  margin: 1rem 0;
+  gap: 0.5rem;
+  font-family: sans-serif;
 }
 
-.stats-grid dt {
-  grid-row: 1;
+#profile-stats dt {
   font-weight: bold;
+  text-align: center;
+  grid-row: 1;
 }
 
-.stats-grid dd {
-  grid-row: 2;
+#profile-stats dd {
   margin: 0;
+  text-align: center;
+  grid-row: 2;
 }
 
 /* === Responsive === */

@@ -16,50 +16,59 @@
         "title": "Can Relationship Affect Serial Killer's Weapon Choice?",
         "year":"2024",
         "image": "/portfolio/images/confusion.png",
-        "description": "The relationship between an offender and their victim has long been a focal point in criminology and sociology because it can significantly influence the dynamics of violent incidents. In this research, we attempt to understand and investigate how the relationship between the offender and victim influences the choice of weapon in solved homicide incidents happened from 2000 till now in Alaska.We use a Random Forest model to predict weapon choice based on the relationship between the offender and the victim."
+        "description": "In this research, we attempt to understand and investigate how the relationship between the offender and victim influences the choice of weapon in solved homicide incidents happened from 2000 till now in Alaska. We use a Random Forest model to predict weapon choice based on the relationship between the offender and the victim."
     },
     {
         "title": "Numquam placeat perferendis error!",
+        "year": "2022",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "\n        \n      "
     },
     {
         "title": "Nisi fugiat explicabo quam.",
+        "year": "2023",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "\n        \n      "
     },
     {
         "title": "Sed est nesciunt doloremque?",
+        "year": "2022",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "\n        \n      "
     },
     {
         "title": "Quis labore excepturi fuga.",
+        "year": "2022",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "\n        \n      "
     },
     {
         "title": "Expedita, perspiciatis porro. Unde!",
+        "year": "2022",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "\n        \n      "
     },
     {
         "title": "Itaque obcaecati voluptas eos.",
+        "year": "2021",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "\n        \n      "
     },
     {
         "title": "Nobis porro facere libero?",
+        "year": "2021",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "\n        \n      "
     },
     {
         "title": "Quaerat corporis illum repellat.",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "\n        \n      "
     },
     {
         "title": "Explicabo eum iste ad.",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "\n        \n      "
     }
