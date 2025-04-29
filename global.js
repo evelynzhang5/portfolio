@@ -173,6 +173,10 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
                          ? `<img src="${project.image}" alt="${title}">`
                          : `<p><em>(No image provided)</em></p>`;
    const description = project.description || 'No description available.';
+   const link        = project.link        || null;
+   const titleMarkup = link
+      ? `<a href="${link}" target="_blank">${title}</a>`
+      : title;
 
    article.innerHTML = `
      <${tag}>${title}</${tag}>
