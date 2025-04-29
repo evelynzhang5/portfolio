@@ -148,50 +148,96 @@
         Persuasive or Deceptive Visualization?
       </h1>
 
-      <p><strong>Your Name</strong> — <em>Your UCSD Email Address</em></p>
+      <p><strong>Evelyn Zhang</strong> — <em>yuz271@ucsd.edu</em></p>
     </header>
 
     <main>
-      <h2>Proposition: [STATE PROPOSITION]</h2>
+      <h2>Proposition: Democratic‐led states provide better abortion access than Republican‐led states.</h2>
 
       <section>
         <h3>FOR the Proposition</h3>
 
         <figure>
-          <img src="IMAGE_FILENAME" alt="" />
-          <figcaption>BRIEF CAPTION HERE.</figcaption>
+          <img src="/Users/evelynzhang/Documents/GitHub/portfolio/project2/output.png" alt="" />
+          <figcaption>Above is a pie chart displaying the top 10 states with highest calculated Access Score(average of three standardized metrics:clinic count, % counties with a clinic, % residents staying in-state). Among ten, nine are Democratic-led, showing that Democratic-controlled states dominate the highest clinic availability in compared to Republican-led.</figcaption>
         </figure>
 
         <p>Design Decisions and Rationale:</p>
 
         <ul>
-          <li>RATIONALE_1</li>
-          <li>RATIONALE_2</li>
-          <li>RATIONALE_3</li>
-        </ul>
+          <li>Compute “Access Score” as the average of three standardized metrics (clinic count, % counties with a clinic, % residents staying in-state)  
+            <ul>
+              <li>Score: +2; Compute a new variable, which is a transparent, comprehensive measure that captures multiple dimensions of abortion access.</li>
+          </ul>
+          </li>
+          <li>Filtering to the Top 10 by Avg_Access_Score 
+            <ul>
+              <li>Score: –1.5; Showing only the ten best performers (nine Dems, one Rep) cherry-picks the “winners” and hides the broader distribution. Intentionally making democratic states overpowering the republican one.</li>
+          </ul>
+          </li>
+          <li>Rescale raw scores by a factor of ×1.5 to set bar lengths  
+            <ul>
+              <li>Score: –1; slightly deceptive—stretches differences in terms of score to look more dramatic and exaggerated than the normalized 0–1 scale.</li>
+          </ul>
+        </li>
+          <li>Party‐Color Fill (Blue vs. Red)
+            <ul>
+              <li>Score: +1.5; Showing only the ten best performers (nine Dems, one Rep) cherry-picks the “winners” and hides the broader distribution. Intentionally making democratic states overpowering the republican one.</li>
+          </ul>
+        </li>
+          <li>Pie Chart Style
+            <ul>
+              <li>Score: –1.5;  Displaying the circle that is filled mostly blue making Democratic states dominate at the first glance. Also, since  the pie-chart metaphor falsely implies a 100% composition, it makes the only one red state even more isolated.</li>
+          </ul>
+          </li>
+
+      </ul>
       </section>
 
       <section>
         <h3>AGAINST the Proposition</h3>
 
         <figure>
-          <img src="IMAGE_FILENAME" alt="" />
-          <figcaption>BRIEF CAPTION HERE.</figcaption>
+          <img src="/Users/evelynzhang/Documents/GitHub/portfolio/project2/output3.png" alt="" />
+          <figcaption>Above is a boxplot displaying the distribution of 50% of states with the lowest clinic workloads (by abortions per clinic) for each party. Even for least-burdened half, Democratic-led states still show a higher median of 696 compared to Republican-led states, with a median of 512 abotions per clincs, indicating greater strain for Democratic clinics despite having higehr number of clinc supplies.</figcaption>
         </figure>
 
         <p>Design Decisions and Rationale:</p>
 
         <ul>
-          <li>RATIONALE_1</li>
-          <li>RATIONALE_2</li>
-          <li>RATIONALE_3</li>
+          <li>Cherry-picking only the bottom 50% of states by abortions per clinic, within each party  
+            <ul>
+              <li>Score: –1.5; By focusing on “low‐strain” states, this selection hides many Republican states with very high workloads that would raise the Republican median, therefore exaggerating the democratic workloads even further. While it may sounds “fair” on the surface by applying symmetric filter for both parties, but because Republicans have a few extremely high‐strain states like Mississippi(3510 abortions/clinic) and Georgia(2972 abotions/clinic) and 4 of top 6 states with highest abotions per clinic are Republicans, removing these will skillfully wipes out most of their worst workloads from Republican Party.</li>
+          </ul>
+          </li>
+          <li>Add dashed horizontal lines, a bold arrow, and label for each party median
+          <ul>
+            <li>Score: +1; Making the key numeric takeaway transparent and obvious to the readers without the need of further interpretation.</li>
+        </ul>
+        </li>
+          <li>Boxplot Style
+          <ul>
+            <li>Score: +1.5; The use of boxeplot reveal not only the median but also the full range of the distribution. Notice that the entire blue box representing Democrats is shifted upward relative to the red box representing Repiblicans counterparts and all of the datapoints(q1,q3, max, min) are higher than the Republican-led states, creating an effect of “higher workloads everywhere.”</li>
+        </ul>
+      </li>
+        <li>Added WHO Clinic Capacity Benchmark at 700
+        <ul>
+          <li>Score: +2; This benchmark is calculated based on WHO and capacity estimates. It helps viewers contextualize whether workloads are approaching a practical limit and they can see that Democratic states are pushing the upper operational limit, even within the bottom 50%, while Republican states are still in a more managable range. </li>
+        </ul>
+      </li>
+
+
         </ul>
       </section>
 
       <section>
         <h2>Final Reflection</h2>
 
-        <p>[WRITE FINAL REFLECTION PARAGRAPHS HERE.]</p>
+        <p>During the process of designing this pair of persuasive visualization, I was surprise by just how much power design choices and data transformation techniques have in revealing different viewpoints while working on the same dataset. Given the dataset - Abortion Data by U.S. State from the Guttmacher Institute and the knowledge of two party policy, I decided to argue over the proposition that Democratic states provide better access to abortion. This task is comparatively harder and challenging since given the current contrasts between the Democratic and Republican Parties’ positions on reproductive rights and health care, it is less likely for Republicans to give much support as their counterparts do. However, I’m still interested in investigating the potential distinction between the political views and the real practice. </p>
+
+        <p>For the support side, I chose the pie chat, which ranks the top ten states by assessing three aggregated, composite access dimensions — availability, distribution, and in-state coverage. My design choices like selective sampling, circular layout, exaggerated bar height amplified partisan dominance beyond what the scores alone reveal, showing a strong Decmoratic representation in providing comprehensive care and support. Conversely, the boxplot in the against position visualization presented a filtered view of clinic workloads that emphasizes the overburden issue among Democratic states even for the least-strained half.  Adding the WHO benchmark transformed a party comparison into an ethical one, suggesting that those seemingly widely distributed access of abortion in most Democratic states may come at the cost of exceeding globally accepted workload limits and really push the message from a simple political distinction into one rooted in global standards and ethical strain.</p>
+
+        <p>The most challenging part of the design is to identify the boundary of deceptive and earnest design while never undermining ethics. I was really surprised  how easy it is to make a deceptive behavior seemingly trustworthy: just by providing a blatantly fair filter like selecting the bottom 50% least-burdened states for each party could omit a lot of data that might favor the other side. After this project, I would define ethical analysis and visualization as using some strategic design choices to highlight the truths without concealing or omitting the data or information that might be unfavored. Acceptable persuasive choices are those that apply a visual effect like adjusting the axis scale/range, using annotations/border lines, creating catching titles, choosing a vivid visualizaition method, selectively transforming/aggregating the data, and so forth. Some misleading choices are those that may distort the data by hiding the correct proportion, ignoring key observations/contextualization, or using underrepresented data and information. I would say that the determining factor is to consider whether the data you present is persuasive but also remain verifiable and justifiable.  </p>
       </section>
     </main>
   </body>
