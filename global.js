@@ -165,27 +165,33 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
 
  // Generate one <article> per project
  projects.forEach((project) => {
-   const article = document.createElement('article');
+  const article = document.createElement('article');
 
-   // Fallbacks for missing data
-   const title       = project.title       || 'Untitled project';
-   const imgMarkup   = project.image
-                         ? `<img src="${project.image}" alt="${title}">`
-                         : `<p><em>(No image provided)</em></p>`;
-   const description = project.description || 'No description available.';
-   const link        = project.link        || null;
-   const titleMarkup = link
-      ? `<a href="${link}" target="_blank">${title}</a>`
-      : title;
+  // Fallbacks for missing data
+  const title       = project.title       || 'Untitled project';
+  const link        = project.link        || null;
+  const description = project.description || 'No description available.';
 
-   article.innerHTML = `
-     <${tag}>${title}</${tag}>
-     ${imgMarkup}
-     <p>${description}</p>
-   `;
+  // Image markup: wrapped in <a> if link exists
+  const imgMarkup = project.image
+    ? (link
+        ? `<a href="${link}" target="_blank"><img src="${project.image}" alt="${title}"></a>`
+        : `<img src="${project.image}" alt="${title}">`)
+    : `<p><em>(No image provided)</em></p>`;
 
-   containerElement.appendChild(article);
- });
+  // Title markup: wrapped in <a> if link exists
+  const titleMarkup = link
+    ? `<a href="${link}" target="_blank">${title}</a>`
+    : title;
+
+  article.innerHTML = `
+    <${tag}>${titleMarkup}</${tag}>
+    ${imgMarkup}
+    <p>${description}</p>
+  `;
+
+  containerElement.appendChild(article);
+});
 }
 // global.js
 // … your existing fetchJSON & renderProjects …
