@@ -24,6 +24,16 @@
         margin: 0 auto;
       }
 
+      figure img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+      }
+
       /* Headings */
 
       h1,
@@ -210,22 +220,27 @@
               <li>Score: –1.5; By focusing on “low‐strain” states, this selection hides many Republican states with very high workloads that would raise the Republican median, therefore exaggerating the democratic workloads even further. While it may sounds “fair” on the surface by applying symmetric filter for both parties, but because Republicans have a few extremely high‐strain states like Mississippi(3510 abortions/clinic) and Georgia(2972 abotions/clinic) and 4 of top 6 states with highest abotions per clinic are Republicans, removing these will skillfully wipes out most of their worst workloads from Republican Party.</li>
           </ul>
           </li>
-          <li>Add dashed horizontal lines, a bold arrow, and label for each party median
+          <li>Computed Abortions per Clinic as a derived metric
+            <ul>
+              <li>Score: +1.5; The use of this newly computed variable aggregates access strain by dividing abortion count by clinic count, which effectively measure the workload. It enables comparison across states by party and also is a good assessment of whether the quality really indicates quantity. </li>
+          </ul>
+        </li>
+          <li>Add Stree Zone Shaded by national quartiles
+            <ul>
+              <li>Score: +1.5; Using the national distribution of the Abortions per Clinic to label “Low”(0,q25), “Moderate”(q25,q75), and “High”(q75-) strain zones transparently contextualizes clinic workload. This help add more background of the national performance and through which viewers can see that even for the bottom 50% least-strained states,  Democratic states' clinic workloads are clustered much higher—mostly 'Moderate' zone, than their counterparts. It effectives shows that even Democratic states face significant overuse issue, challenging the claim of 'better access'.</li>
+          </ul>
+        </li>
+          <li>Y-axis topped at 1400
           <ul>
-            <li>Score: +1; Making the key numeric takeaway transparent and obvious to the readers without the need of further interpretation.</li>
+            <li>Score: +1; Capping the visualization at 1400 avoids unnecessary white space and helps focus the reader on the two boxes more closely; however, it does also viually 'stretch' the height of each box and subconsciously exaggerate the burden, therefore making the Democratic median look taller.</li>
         </ul>
         </li>
-          <li>Boxplot Style
+          <li>Boxplot Style with Added dashed horizontal lines, a bold arrow, and label for each party median
           <ul>
-            <li>Score: +1.5; The use of boxeplot reveal not only the median but also the full range of the distribution. Notice that the entire blue box representing Democrats is shifted upward relative to the red box representing Repiblicans counterparts and all of the datapoints(q1,q3, max, min) are higher than the Republican-led states, creating an effect of “higher workloads everywhere.”</li>
+            <li>Score: +1.5; The use of boxeplot reveal not only the median but also the full range of the distribution. The annotations also help make the key numeric takeaway transparent and obvious to the readers without the need of further interpretation. Notice that the entire blue box representing Democrats is shifted upward relative to the red box representing Repiblicans counterparts and all of the datapoints(q1,q3, max, min) are higher than the Republican-led states, creating an effect of “higher workloads everywhere.”</li>
         </ul>
       </li>
-    </li>
-        <li>Computed Abortions per Clinic as a derived metric
-        <ul>
-          <li>Score: +1.5; The use of this newly computed variable aggregates access strain by dividing abortion count by clinic count, which effectively measure the workload. It enables comparison across states by party and also is a good assessment of whether the quality really indicates quantity. </li>
-      </ul>
-    </li>
+  
         </ul>
       </section>
 
