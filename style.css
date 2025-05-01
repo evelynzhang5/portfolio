@@ -100,12 +100,13 @@ color: canvastext;
 }
 .container {
   display: flex;
-  gap: 2em;
-  align-items: flex-start;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2em;
   margin-block: 2em;
 }
+
 
 .legend {
   display: grid;
@@ -330,7 +331,7 @@ color: canvastext;
 
 
 /* === Responsive === */
-@media (max-width: 800px) {
+@media (max-width: 600px) {
 nav {
     flex-direction: column;
 }
@@ -340,5 +341,14 @@ nav {
 }
 h1 {
     font-size: 2rem;
+}
+.container {
+  flex-direction: column;
+  align-items: center;
+}
+
+.legend {
+  max-width: 90%;
+  justify-items: center;
 }
 }

@@ -14,6 +14,7 @@ import { fetchJSON, renderProjects } from '/portfolio/global.js';
     const count    = Array.isArray(projects) ? projects.length : 0;
     titleEl.textContent = `${count} ${baseText}`;
     }
+
     let data = [
       { value: 1, label: 'apples' },
       { value: 2, label: 'oranges' },
@@ -48,7 +49,5 @@ import { fetchJSON, renderProjects } from '/portfolio/global.js';
         .attr('stroke', 'white')
         .attr('stroke-width', 0.5);
     });
-
-  
 
 })();
