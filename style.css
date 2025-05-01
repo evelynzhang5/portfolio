@@ -112,25 +112,26 @@ color: canvastext;
 
 .legend {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
   gap: 0.75em;
   list-style: none;
   padding: 1em;
-  border: 1px solid canvastext;
   margin: 0;
   flex: 1;
-  max-width: 30em;
-  color: canvastext;
+  border: 1px solid canvastext;
   background: canvas;
+  color: canvastext;
+  width: 100%;              /* ✅ Let it fill container */
+  max-width: none;          /* ✅ Remove this if it exists */
+  box-sizing: border-box;
 }
 
-/* Legend items aligned with swatches */
+
 .legend-item {
   display: flex;
   align-items: center;
   gap: 0.5em;
   font-size: 0.95em;
-  width: 100%;
 }
 
 
@@ -144,7 +145,6 @@ color: canvastext;
 }
 
 
-/* === Navigation === */
 nav {
 display: flex;
 margin-bottom: 1em;
