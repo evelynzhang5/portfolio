@@ -114,11 +114,12 @@ color: canvastext;
   gap: 0.75em;
   list-style: none;
   padding: 1em;
-  border: 1px solid lightgray;
+  border: 1px solid canvastext;
   margin: 0;
   flex: 1;
   max-width: 30em;
-  color: white; /* adjust for dark mode */
+  color: canvastext;
+  background: canvas;
 }
 
 /* Legend items aligned with swatches */
@@ -129,6 +130,8 @@ color: canvastext;
   font-size: 0.95em;
   width: 100%;
 }
+
+
 .swatch {
   width: 1em;
   height: 1em;
