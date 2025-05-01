@@ -36,14 +36,15 @@ import { fetchJSON, renderProjects } from '/portfolio/global.js';
     data.forEach((d, idx) => {
       legend
         .append('li')
-        .attr('style', `--color:${colors(idx)}`) // set the style attribute while passing in parameters
-        .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`); // set the inner html of <li>
+        .attr('class', 'legend-item')
+        .attr('style', `--color:${colors(idx)}`)
+        .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
     });
 
     arcData.forEach((d, i) => {
       svg.append('path')
         .attr('d', arcGen(d))
-        .attr('fill', colors[i])
+        .attr('fill', colors(i))
         .attr('stroke', 'white')
         .attr('stroke-width', 0.5);
     });

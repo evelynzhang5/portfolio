@@ -116,22 +116,23 @@ color: canvastext;
   border: 1px solid lightgray;
   margin: 0;
   flex: 1;
-  max-width: 24em;
+  max-width: 30em;
+  color: white; /* adjust for dark mode */
 }
 
-
-.legend li {
+/* Legend items aligned with swatches */
+.legend-item {
   display: flex;
   align-items: center;
   gap: 0.5em;
-  color: white; /* Add this if you're in dark mode */
+  font-size: 0.95em;
 }
-
 .swatch {
   width: 1em;
   height: 1em;
-  border-radius: 50%;
+  aspect-ratio: 1 / 1;
   background-color: var(--color);
+  border-radius: 50%;
   display: inline-block;
 }
 
