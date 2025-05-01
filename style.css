@@ -76,6 +76,11 @@ color: canvastext;
 margin: 0;
 color: canvastext;
 }
+.project-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
 .year {
   font-family: Baskerville, serif;
   color: gray;
@@ -83,7 +88,7 @@ color: canvastext;
   margin-top: 0.25em;
   font-size: 0.95em;
 }
-#projects-pie-plot {
+#projects-plot {
   max-width: 20em;
   margin-block: 2em;
 

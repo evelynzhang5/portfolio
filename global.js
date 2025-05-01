@@ -184,12 +184,21 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     ? `<a href="${link}" target="_blank">${title}</a>`
     : title;
 
-  article.innerHTML = `
+  // article.innerHTML = `
+  //   <${tag}>${titleMarkup}</${tag}>
+  //   ${imgMarkup}
+  //   <p>${description}</p>
+  //   <p class="year">${project.year}</p>
+  // `;
+    article.innerHTML = `
     <${tag}>${titleMarkup}</${tag}>
     ${imgMarkup}
-    <p>${description}</p>
-    <p class="year">${project.year}</p>
+    <div class="project-meta">
+      <p>${description}</p>
+      <p class="year">${project.year}</p>
+    </div>
   `;
+
 
   containerElement.appendChild(article);
 });
