@@ -127,6 +127,7 @@ color: canvastext;
   align-items: center;
   gap: 0.5em;
   font-size: 0.95em;
+  width: 100%;
 }
 .swatch {
   width: 1em;
@@ -348,7 +349,12 @@ h1 {
 }
 
 .legend {
-  max-width: 90%;
-  justify-items: center;
+  max-width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
+  justify-content: center;
+}
+
+.legend-item {
+  justify-content: center;
 }
 }
