@@ -98,14 +98,13 @@ color: canvastext;
   overflow: visible;
   /* display: block; */
 .container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2em;
-  justify-content: center;
-  align-items: flex-start;
-  margin-block: 2em;
-}
-
+    display: flex;
+    gap: 2em;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
 .legend {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
@@ -121,6 +120,7 @@ color: canvastext;
   display: flex;
   align-items: center;
   gap: 0.5em;
+  color: white; /* Add this if you're in dark mode */
 }
 
 .swatch {
