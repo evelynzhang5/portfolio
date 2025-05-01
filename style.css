@@ -95,7 +95,7 @@ color: canvastext;
   max-width: 20em;
   aspect-ratio: 1 / 1;
   margin-block: 2em;
-  margin-inline: auto;
+  /* margin-inline: auto; */
   overflow: visible;
   display: block;
 }
