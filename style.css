@@ -81,19 +81,25 @@ color: canvastext;
   flex-direction: column;
   gap: 0.3em;
 }
+
+
 .year {
   font-family: Baskerville, serif;
   color: gray;
   font-variant-numeric: oldstyle-nums;
-  margin-top: 0.25em;
   font-size: 0.95em;
 }
-#projects-plot {
-  max-width: 20em;
-  margin-block: 2em;
 
+#projects-plot {
+  width: 100%;
+  max-width: 20em;
+  aspect-ratio: 1 / 1;
+  margin-block: 2em;
+  margin-inline: auto;
   overflow: visible;
+  display: block;
 }
+
 
 /* === Navigation === */
 nav {

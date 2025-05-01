@@ -38,15 +38,6 @@ import { fetchJSON, renderProjects } from '/portfolio/global.js';
         .attr('stroke-width', 0.5);
     });
 
-    
-
-
-
-
-
-    
-      
-    
-
+  
 
 })();
