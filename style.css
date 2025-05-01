@@ -99,13 +99,14 @@ color: canvastext;
 
 }
 .container {
-    display: flex;
-    gap: 2em;
-    align-items: flex-start;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
+  display: flex;
+  gap: 2em;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-block: 2em;
+}
+
 .legend {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
@@ -115,7 +116,9 @@ color: canvastext;
   border: 1px solid lightgray;
   margin: 0;
   flex: 1;
+  max-width: 24em;
 }
+
 
 .legend li {
   display: flex;

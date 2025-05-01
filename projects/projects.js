@@ -32,8 +32,7 @@ import { fetchJSON, renderProjects } from '/portfolio/global.js';
 
     let svg = d3.select('#projects-plot');
     let legend = d3.select('.legend');
-    legend.selectAll('*').remove();
-
+   
     data.forEach((d, idx) => {
       legend
         .append('li')
