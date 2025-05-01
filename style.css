@@ -90,13 +90,45 @@ color: canvastext;
   font-size: 0.95em;
 }
 
-#projects-plot {
+/* #projects-plot {
   width: 100%;
   max-width: 20em;
   aspect-ratio: 1 / 1;
   margin-block: 2em;
   overflow: visible;
   /* display: block; */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: center;
+  align-items: flex-start;
+  margin-block: 2em;
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  gap: 0.75em;
+  list-style: none;
+  padding: 1em;
+  border: 1px solid lightgray;
+  margin: 0;
+  flex: 1;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.swatch {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: var(--color);
+  display: inline-block;
 }
 
 

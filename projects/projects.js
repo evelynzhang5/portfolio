@@ -14,16 +14,32 @@ import { fetchJSON, renderProjects } from '/portfolio/global.js';
     const count    = Array.isArray(projects) ? projects.length : 0;
     titleEl.textContent = `${count} ${baseText}`;
     }
-    let data = [1, 2]; 
+    let data = [
+      { value: 1, label: 'apples' },
+      { value: 2, label: 'oranges' },
+      { value: 3, label: 'mangos' },
+      { value: 4, label: 'pears' },
+      { value: 5, label: 'limes' },
+      { value: 5, label: 'cherries' },
+    ];
+    
 
-    let pie = d3.pie();
-    let arcData = pie(data);
-
+    let sliceGenerator = d3.pie().value((d) => d.value);
+    let arcData = sliceGenerator(data); 
     let arcGen = d3.arc().innerRadius(0).outerRadius(50);
 
-    let colors = ['gold', 'purple'];
+    let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
     let svg = d3.select('#projects-plot');
+    let legend = d3.select('.legend');
+    legend.selectAll('*').remove();
+
+    data.forEach((d, idx) => {
+      legend
+        .append('li')
+        .attr('style', `--color:${colors(idx)}`) // set the style attribute while passing in parameters
+        .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`); // set the inner html of <li>
+    });
 
     arcData.forEach((d, i) => {
       svg.append('path')
