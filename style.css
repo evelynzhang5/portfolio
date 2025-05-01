@@ -93,11 +93,13 @@ color: canvastext;
 #projects-plot {
   width: 100%;
   max-width: 20em;
+  flex-shrink: 0;           
   aspect-ratio: 1 / 1;
-  margin-block: 2em;
   overflow: visible;
-
+  display: block;
+  margin-inline: auto;
 }
+
 .container {
   display: flex;
   flex-wrap: wrap;
