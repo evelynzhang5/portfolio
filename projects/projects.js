@@ -42,12 +42,4 @@ import { fetchJSON, renderProjects } from '/portfolio/global.js';
         .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
     });
 
-    arcData.forEach((d, i) => {
-      svg.append('path')
-        .attr('d', arcGen(d))
-        .attr('fill', colors(i))
-        .attr('stroke', 'white')
-        .attr('stroke-width', 0.5);
-    });
-
 })();
