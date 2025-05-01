@@ -118,13 +118,14 @@ color: canvastext;
   padding: 1em;
   margin: 0;
   flex: 1;
+  width: 100%;               /* ✅ makes it responsive inside .container */
+  max-width: 40em;           /* ✅ prevents legend from stretching too far */
   border: 1px solid canvastext;
   background: canvas;
   color: canvastext;
-  width: 100%;              /* ✅ Let it fill container */
-  max-width: none;          /* ✅ Remove this if it exists */
   box-sizing: border-box;
 }
+
 
 
 .legend-item {
@@ -132,6 +133,7 @@ color: canvastext;
   align-items: center;
   gap: 0.5em;
   font-size: 0.95em;
+  white-space: nowrap;    
 }
 
 
