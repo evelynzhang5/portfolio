@@ -1,9 +1,9 @@
 // index.js
-import { fetchJSON, renderProjects, fetchGitHubData } from '/portfolio/global.js';
+import { fetchJSON, renderProjects, fetchGitHubData } from './global.js';
 
 (async function() {
 
-  const projects = await fetchJSON('lib/projects.json');
+  const projects = await fetchJSON('./lib/projects.json');
 
 
   const latestThree = Array.isArray(projects) 
