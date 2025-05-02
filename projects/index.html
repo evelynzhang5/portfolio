@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Put this at the top of your <head> in every HTML file -->
 <head>
   <script>
     const saved = localStorage.colorScheme;
@@ -15,33 +14,40 @@
     } else if (saved === "dark") {
       document.documentElement.classList.add("force-dark");
     } else {
-      // auto or not set
+
       applyAutoScheme();
     }
   </script>
   
   <meta charset="UTF-8">
   <title>Projects: Personal site and portfolio</title>
-  <link rel="stylesheet" href="/portfolio/style.css">
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
   <h1 class="projects-title">Projects</h1>
 
   <div class="container">
-    
+
     <svg id="projects-plot" viewBox="-50 -50 100 100"></svg>
 
     <ul class="legend"></ul>
 
   </div>
+  <input
+  class="searchBar"
+  type="search"
+  aria-label="Search projects"
+  placeholder="🔍 Search projects…"
+/>
+
   
 
   <div class="projects">
 
   <!-- <script src="/portfolio/projects/index.js" type="module" defer></script> -->
   </div>
-  <script src="/portfolio/global.js" type="module"></script>
-  <script src="/portfolio/projects/projects.js" type="module"></script>
+  <script src="../global.js" type="module"></script>
+  <script src="../projects/projects.js" type="module"></script>
   <p>This page showcases my projects.</p>
 
 

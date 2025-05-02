@@ -1,20 +1,20 @@
 [
     {
         "title": "Salt Shock: Processed Foods(NOVA 2) Have the HIghest Median Sodium Content",
-        "image": "/portfolio/images/dsc106_project1.png",
+        "image": "../images/dsc106_project1.png",
         "description": "In my above visualization, I explored how sodium content (grams per 100g of product) varies across the four NOVA food processing categories based on the NOVA classification system. While ultra-processed foods are often seen as nutritionally inferior and are expected to contain more added components like salt, after a thorough examination of the distribution of sodium across unprocessed, culinary ingredient, processed, and ultra-processed foods in the given dataset grocerydb.csv, I was able to challenge such assumption above and concluded that surprisingly Processed food(NOVA 2) has highest median sodium content.",
         "year": "2025"
 
     },
     {
         "title": "Recipe Rating Predictions Based on MEAT Inclusion",
-        "image": "/portfolio/images/meat.png",
+        "image": "../images/meat.png",
         "description": "In this project, we decided to explore the relationship between recipe ratings and the nutrition information.we are interested in investigating relationship between the meat inclusion of recipes and their user ratings. In particular, we wonder if recipes with meat tagged will get lower ratings due to consumer’s expectations for healthier, more sustainable eating options. The dataset we are using contains recipes and ratings from food.com. We then get p-value of 0.0, which is less than 0.05. As a result, we reject the null hypothesis and conclude that people rate recipes with meat in their tag lower than recipes without meat in their tag.",
         "year": "2025"
     },
     {
         "title": "Can Relationship Affect Serial Killer's Weapon Choice?",
-        "image": "/portfolio/images/confusion.png",
+        "image": "../images/confusion.png",
         "description": "In this research, we attempt to understand and investigate how the relationship between the offender and victim influences the choice of weapon in solved homicide incidents happened from 2000 till now in Alaska. We use a Random Forest model to predict weapon choice based on the relationship between the offender and the victim.",
         "year":"2024"
     },
@@ -74,9 +74,9 @@
     },
     {
         "title": "Do Democratic States Offer Better Abortion Access?",
-        "image": "/portfolio/project2/output.png",
+        "image": "../project2/output.png",
         "description": "This project uses persuasive visualizations to examine the claim that Democratic-led states provide better access to abortion services. We explore both sides of the proposition using a dataset from the Guttmacher Institute and compare access metrics such as clinic count, provider gaps, and abortion rates by state.",
-        "link": "/portfolio/project2/project2_report.html",
+        "link": "../project2/project2_report.html",
         "year": "2025"
     }
       
