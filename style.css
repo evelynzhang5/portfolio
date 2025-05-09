@@ -388,7 +388,150 @@ color: canvastext;
   text-align: center;
   grid-row: 2;
 }
+#stats {
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2rem;
+  max-width: var(--max-content-width);
+  margin-inline: auto;
+  padding: 0 1rem;
+}
 
+.stats-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100px;
+  background-color: Canvas;
+  color: CanvasText;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid color-mix(in oklch, CanvasText 12%, Canvas);
+  box-shadow: 0 2px 4px color-mix(in oklch, CanvasText 8%, transparent);
+  transition: background-color 0.3s ease;
+}
+
+.stats dt {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: color-mix(in oklch, CanvasText 60%, Canvas);
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.stats dd {
+  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+  font-weight: 700;
+  color: CanvasText;
+  margin: 0;
+  text-align: center;
+}
+.gridlines line {
+  stroke: color-mix(in oklch, CanvasText 15%, Canvas);
+  stroke-width: 1;
+}
+
+.gridlines path {
+  display: none;
+}
+
+
+/* Tooltip layout & formatting */
+dl.info {
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 0.25rem 1rem;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  background-color: color-mix(in oklch, Canvas 95%, CanvasText 5%);
+  color: CanvasText;
+  box-shadow: 0 4px 8px color-mix(in oklch, CanvasText 10%, transparent);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+.tooltip {
+  position: fixed;
+  pointer-events: none;
+  top: 1em;
+  left: 1em;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Dot hover effect */
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+circle.dot.night {
+  fill: steelblue; /* or any blue shade you like */
+}
+
+circle.dot.day {
+  fill: #f59e0b; /* orange */
+}
+circle.dot.selected {
+  fill: #ff6b6b !important;
+}
+
+
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+#language-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.95rem;
+}
+
+#language-breakdown dt {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+  color: var(--current-color, CanvasText);
+}
+
+#language-breakdown dd {
+  margin: 0;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: CanvasText;
+}
 
 /* === Responsive === */
 @media (max-width: 600px) {
