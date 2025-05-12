@@ -20,9 +20,10 @@
     },
     {
         "title": "Explore bike lanes in Boston and Cambridge using Mapbox GL JS",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "\n        \n      ",
-        "year": "2022"
+        "image": "https://evelynzhang5.github.io/portfolio/images/bikewatching.png",
+        "description": "In this project, I explore the bike lanes in Boston and Cambridge and showing the bike traffic in three categories, with circles represent individual BlueBike stations. The size of each circle represents the amount of traffic at each station, while the color represents whether most traffic is entering or leaving the station. We will be using two datasets from BlueBikes to analyze bike traffic from about 260,000 individual rides from March 2024.",
+        "link":"https://evelynzhang5.github.io/bikewatching/",
+        "year": "2025"
     },
     {
         "title": "Nisi fugiat explicabo quam.",
