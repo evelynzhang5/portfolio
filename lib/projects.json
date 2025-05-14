@@ -26,10 +26,11 @@
         "year": "2025"
     },
     {
-        "title": "Nisi fugiat explicabo quam.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "\n        \n      ",
-        "year": "2023"
+        "title": "Rhythms of the Night: Two-Week Mouse Activity & Temperature Across Estrus Cycles",
+        "image": "https://evelynzhang5.github.io/portfolio/images/mice.png",
+        "description": "Project Created as a part of DSC 106 SP 2025 at UCSD, Allows the user to interact and visually see activity/body temperature of Mice",
+        "link":"https://evelynzhang5.github.io/MiceActivityAcrossTime/",
+        "year": "2025"
     },
     {
         "title": "Sed est nesciunt doloremque?",
