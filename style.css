@@ -445,33 +445,6 @@ display: none;
 
 
 /* Tooltip layout & formatting */
-dl.info {
-display: grid;
-grid-template-columns: max-content auto;
-gap: 0.25rem 1rem;
-margin: 0;
-padding: 0.75rem 1rem;
-font-size: 0.875rem;
-border-radius: 0.5rem;
-background-color: color-mix(in oklch, Canvas 95%, CanvasText 5%);
-color: CanvasText;
-box-shadow: 0 4px 8px color-mix(in oklch, CanvasText 10%, transparent);
-backdrop-filter: blur(6px);
-z-index: 1000;
-transition: opacity 0.5s, visibility 0.5s;
-}
-
-.tooltip {
-position: fixed;
-pointer-events: none;
-top: 1em;
-left: 1em;
-}
-
-dl.info[hidden]:not(:hover, :focus-within) {
-opacity: 0;
-visibility: hidden;
-}
 
 /* Dot hover effect */
 circle {
@@ -495,6 +468,36 @@ circle.dot.selected {
 fill: #ff6b6b !important;
 }
 
+
+/* Tooltip layout & formatting */
+dl.info {
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 0.25rem 1rem;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  background-color: color-mix(in oklch, Canvas 95%, CanvasText 5%);
+  color: CanvasText;
+  box-shadow: 0 4px 8px color-mix(in oklch, CanvasText 10%, transparent);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  transition: opacity 0.5s, visibility 0.5s;
+  }
+  
+  .tooltip {
+  position: fixed;
+  pointer-events: none;
+  top: 1em;
+  left: 1em;
+  }
+
+
+dl.info[hidden]:not(:hover, :focus-within) {
+opacity: 0;
+visibility: hidden;
+}
 
 @keyframes marching-ants {
 to {
@@ -636,6 +639,9 @@ border-radius: 50%;
   overflow-y: scroll;
   border: 1px solid #ccc;
   padding-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  border-radius: 8px;
 }
 
 #items-container {
@@ -643,6 +649,14 @@ border-radius: 50%;
   top: 0;
   left: 0;
   width: 100%;
+}
+
+.item {
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid color-mix(in oklch, CanvasText 15%, Canvas);
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
 #spacer {
@@ -656,7 +670,47 @@ border-radius: 50%;
 
 #chart {
   grid-column: 2;
+  width: 100%;
+  overflow-x: auto;
 }
+
+#file-scrollytelling {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+  margin-block: 2rem;
+}
+
+#file-scroll-container {
+  grid-column: 1;
+  position: relative;
+  width: 100%;
+  height: 350px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+#file-items-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+#file-spacer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: none;
+  pointer-events: none;
+}
+
 
 /* === Responsive === */
 @media (max-width: 600px) {
