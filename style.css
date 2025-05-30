@@ -759,7 +759,7 @@ margin-left: 0;
 
 #scatter-plot, #file-plot {
   flex: 1;
-  position: flex;
+  position: sticky;
   top: 2rem;
   height: auto;
 }
