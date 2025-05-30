@@ -199,6 +199,10 @@ let commits = [];
 let xScale, yScale, rScale, scatterSvg;
 let timeScale, commitProgress = 100;
 let commitMaxTime, filteredCommits = [];
+let isBrushing = false;
+let currentVisibleCommits = [];
+
+
 
 const tooltip = document.getElementById('commit-tooltip');
 const pieTooltip = d3.select("#pie-tooltip");
@@ -326,6 +330,8 @@ function renderScatterPlot(data) {
 }
 
 function updateScatterPlot(commits) {
+  currentVisibleCommits = commits;
+
   xScale.domain(d3.extent(commits, d => d.datetime));
   const [minLines, maxLines] = d3.extent(commits, d => d.totalLines);
   rScale.domain([minLines, maxLines]);
@@ -355,19 +361,77 @@ function updateScatterPlot(commits) {
       hideTooltip();
     });
 }
-
-function brushed(event) {
-  if (!event.selection || !event.selection[0]) return;
-  const [[x0, y0], [x1, y1]] = event.selection;
-  const visible = d3.selectAll('.dots circle').data();
-  const selected = visible.filter(d => {
-    const x = xScale(d.datetime), y = yScale(d.hourFrac);
-    return x >= x0 && x <= x1 && y >= y0 && y <= y1;
-  });
-  d3.selectAll('circle').classed('selected', d => selected.includes(d));
+function isCommitSelected(selection, commit) {
+  if (!selection) return false;
+  const [[x0, y0], [x1, y1]] = selection;
+  const x = xScale(commit.datetime);
+  const y = yScale(commit.hourFrac);
+  return x >= x0 && x <= x1 && y >= y0 && y <= y1;
 }
 
+function renderSelectionCount(selectedCommits) {
+  const countElement = document.querySelector('#selection-count');
+  countElement.textContent = `${
+    selectedCommits.length || 'No'
+  } commits selected`;
+}
+
+function renderLanguageBreakdown(selectedCommits) {
+  const container = document.getElementById('language-breakdown');
+  if (!selectedCommits.length) {
+    container.innerHTML = '';
+    return;
+  }
+
+  const lines = selectedCommits.flatMap(d => d.lines);
+  const breakdown = d3.rollup(lines, v => v.length, d => d.type);
+
+  container.innerHTML = '';
+  for (const [language, count] of breakdown) {
+    const proportion = count / lines.length;
+    const formatted = d3.format('.1~%')(proportion);
+    container.innerHTML += `
+      <dt>${language}</dt>
+      <dd>${count} lines (${formatted})</dd>
+    `;
+  }
+}
+
+
+// function brushed(event) {
+//   if (!event.selection || !event.selection[0]) return;
+//   const [[x0, y0], [x1, y1]] = event.selection;
+//   const visible = d3.selectAll('.dots circle').data();
+//   const selected = visible.filter(d => {
+//     const x = xScale(d.datetime), y = yScale(d.hourFrac);
+//     return x >= x0 && x <= x1 && y >= y0 && y <= y1;
+//   });
+//   d3.selectAll('circle').classed('selected', d => selected.includes(d));
+// }
+
+function brushed(event) {
+  if (event.type === 'start') isBrushing = true;
+  if (event.type === 'end') setTimeout(() => isBrushing = false, 100);
+
+  const selection = event.selection;
+  const visibleData = d3.select('#chart svg g.dots').selectAll('circle').data();
+
+  const selected = visibleData.filter(d => isCommitSelected(selection, d));
+
+  // Apply 'selected' class only to visible points
+  d3.select('#chart svg g.dots')
+    .selectAll('circle')
+    .classed('selected', d => selected.includes(d));
+
+  renderSelectionCount(selected);
+  renderLanguageBreakdown(selected);
+}
+
+
+
 function showTooltip(d, evt) {
+  if (isBrushing) return;
+
   tooltip.hidden = false;
   tooltip.style.left = `${evt.clientX + 10}px`;
   tooltip.style.top = `${evt.clientY + 10}px`;
@@ -377,8 +441,8 @@ function showTooltip(d, evt) {
   document.getElementById('commit-time').textContent = d.datetime.toLocaleTimeString();
   document.getElementById('commit-author').textContent = d.author;
   document.getElementById('commit-lines').textContent = d.totalLines;
-  updateCommitInfo(d);
 }
+
 
 // function updateFileDisplay(commits) {
 //   const lines = commits.flatMap(d => d.lines);
@@ -546,7 +610,11 @@ const raw = await loadData();
 commits = processCommits(raw);
 renderNarrativeSteps();
 renderFileSteps();
+
+currentVisibleCommits = commits; // ✅ set explicitly
 renderScatterPlot(commits);
+
+
 
 
 

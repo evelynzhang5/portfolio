@@ -9,20 +9,24 @@
   <h1>Repository Evolution</h1>
   <div id="scrolly-1">
     <div id="scatter-story"></div>
+
     <div id="scatter-plot">
       <div id="chart"></div>
 
-      <!-- Language Pie Chart + Legend -->
-     <section id="language-pie-section">
-  <h2>Language Distribution</h2>
-  <div id="language-visual-wrap">
-    <svg id="language-pie" width="400" height="400" viewBox="0 0 400 400"></svg>
-    <ul id="language-legend"></ul>
-  </div>
-  
-  </section>
-
-  </div>
+      <section id="brush-stats">
+        <h2>Brushed Commits</h2>
+        <p id="selection-count">No commits selected</p>
+        <dl id="language-breakdown" class="stats"></dl>
+      </section>
+      <section id="language-pie-section">
+        <h2>Language Distribution</h2>
+        <div id="language-visual-wrap">
+          <svg id="language-pie" width="400" height="400" viewBox="0 0 400 400"></svg>
+          <ul id="language-legend"></ul>
+        </div>
+      </section>
+    
+    </div>
   </div>
 
   <!-- Tooltip for Pie -->
@@ -44,8 +48,6 @@
     <p><strong>Author:</strong> <span id="commit-author">-</span></p>
     <p><strong>Lines Changed:</strong> <span id="commit-lines">-</span></p>
   </div>
-
-
 
   <script type="module" src="main.js"></script>
   <script type="module" src="../global.js"></script>
